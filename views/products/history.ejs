@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product History</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+
+<body>
+
+    <header>
+
+        <h1><%= product.name %></h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/competitors">Competitors</a>
+            <a href="/products">Products</a>
+            <a href="/account">Account</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <p>
+            <a
+                href="<%= product.product_url %>"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Product
+            </a>
+        </p>
+
+        <h2>Price & Stock History</h2>
+
+        <% if (history.length === 0) { %>
+
+            <p>
+                No snapshots have been recorded yet.
+            </p>
+
+        <% } else { %>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Checked</th>
+                        <th>Price</th>
+                        <th>Stock Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% history.forEach(snapshot => { %>
+
+                        <tr>
+
+                            <td>
+                                <%= new Date(snapshot.checked_at).toLocaleString() %>
+                            </td>
+
+                            <td>
+                                <% if (snapshot.price !== null) { %>
+                                    $<%= snapshot.price %>
+                                <% } else { %>
+                                    Unknown
+                                <% } %>
+                            </td>
+
+                            <td>
+                                <%= snapshot.stock_status %>
+                            </td>
+                            <td>
+                                <% if (product.is_low_confidence) { %>
+                                <div class="warning-banner">
+⚠️ Unverified page — this doesn't look like a specific product page, so the data here may be inaccurate. Please link to the exact product page for reliable tracking.                             </div>
+                             <% } %>
+                            </td>
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+        <% } %>
+
+        <p>
+            <a href="/products">Back to products</a>
+        </p>
+
+    </main>
+
+</body>
+</html>

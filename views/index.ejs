@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Competitor Monitor — Competitive Intelligence for Online Stores</title>
+
+<meta
+    name="description"
+    content="Track competitor prices, stock and product changes automatically. Know what your market is doing without constantly checking websites."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="/landing.css">
+
+
+
+</head>
+
+<body>
+
+<header class="landing-nav">
+    <div class="nav-container">
+
+
+      
+    <a href="/" class="brand">
+    <span class="brand-mark">
+        <img src="/favicon.png" alt="Rivalo">
+    </span>
+    <span>Rivalo</span>
+</a>
+
+    <nav class="desktop-nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="/#waitlist">Early access</a>
+
+    </nav>
+
+    <div class="nav-actions">
+    <a href="/auth/login" class="login-link">Log in</a>
+
+    <% if (isAuthenticated) { %>
+        <a href="/competitors" class="monitoring-button">
+            Start Monitoring
+        </a>
+    <% } else { %>
+        <a href="/auth/register" class="monitoring-button">
+            Start Monitoring
+        </a>
+    <% } %>
+</div>
+
+</div>
+
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<div class="hero-grid">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            COMPETITIVE INTELLIGENCE
+        </div>
+
+        <h1>
+            Your competitors
+            <span>move.</span>
+            Now you know.
+        </h1>
+
+        <p class="hero-description">
+            Competitor Monitor watches the products you care about
+            and tells you when prices or stock change.
+            No spreadsheets. No constant checking.
+        </p>
+
+        <div class="hero-actions">
+
+            <% if (isAuthenticated) { %>
+        <a href="/competitors" class="monitoring-button">
+            Start Monitoring
+        </a>
+    <% } else { %>
+        <a href="/auth/register" class="monitoring-button">
+            Start Monitoring
+        </a>
+    <% } %>
+
+            <a href="#how-it-works" class="secondary-button">
+                See how it works
+                <span>↓</span>
+            </a>
+
+        </div>
+
+        <div class="hero-proof">
+
+            <div class="proof-item">
+                <strong>24/7</strong>
+                <span>automated monitoring</span>
+            </div>
+
+            <div class="proof-divider"></div>
+
+            <div class="proof-item">
+                <strong>Price</strong>
+                <span>and stock changes</span>
+            </div>
+
+            <div class="proof-divider"></div>
+
+            <div class="proof-item">
+                <strong>Alerts</strong>
+                <span>when something changes</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT -->
+
+    <div class="hero-product">
+
+        <div class="product-glow"></div>
+
+        <div class="browser-window">
+
+            <div class="browser-bar">
+
+                <div class="browser-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="browser-url">
+                    <span class="browser-lock">⌁</span>
+                    app.competitormonitor.com
+                </div>
+
+                <div class="browser-window-action">
+                    •••
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-preview">
+
+                <aside class="preview-sidebar">
+
+                    <div class="preview-logo">
+                        <span class="preview-logo-mark">C</span>
+                    </div>
+
+                    <div class="sidebar-group">
+
+                        <div class="sidebar-label">
+                            WORKSPACE
+                        </div>
+
+                        <div class="sidebar-item active">
+                            <span>◈</span>
+                            Overview
+                        </div>
+
+                        <div class="sidebar-item">
+                            <span>□</span>
+                            Products
+                        </div>
+
+                        <div class="sidebar-item">
+                            <span>◎</span>
+                            Competitors
+                        </div>
+
+                        <div class="sidebar-item">
+                            <span>!</span>
+                            Alerts
+                            <b>3</b>
+                        </div>
+
+                    </div>
+
+                    <div class="sidebar-group sidebar-group-second">
+
+                        <div class="sidebar-label">
+                            MANAGEMENT
+                        </div>
+
+                        <div class="sidebar-item">
+                            <span>↗</span>
+                            Activity
+                        </div>
+
+                        <div class="sidebar-item">
+                            <span>⚙</span>
+                            Settings
+                        </div>
+
+                    </div>
+
+                    <div class="sidebar-bottom">
+
+                        <div class="preview-user">
+
+                            <div class="preview-avatar">
+                                JD
+                            </div>
+
+                            <div>
+                                <strong>John Doe</strong>
+                                <small>Workspace</small>
+                            </div>
+
+                            <span>•••</span>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+                <div class="preview-main">
+
+                    <div class="preview-topbar">
+
+                        <div class="preview-breadcrumb">
+                            Workspace
+                            <span>/</span>
+                            Overview
+                        </div>
+
+                        <div class="preview-top-actions">
+                            <span class="preview-search">⌕ Search</span>
+                            <span class="preview-notification">♢</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-header">
+
+                        <div>
+
+                            <p class="preview-label">
+                                OVERVIEW
+                            </p>
+
+                            <h3>
+                                Market activity
+                            </h3>
+
+                            <p class="preview-subtitle">
+                                Here's what changed across your market.
+                            </p>
+
+                        </div>
+
+                        <button class="preview-add">
+                            <span>+</span>
+                            Add product
+                        </button>
+
+                    </div>
+
+
+                    <div class="preview-stats">
+
+                        <div class="preview-stat">
+
+                            <div class="stat-icon">□</div>
+
+                            <span>Tracked products</span>
+
+                            <strong>24</strong>
+
+                            <small>
+                                Across 6 competitors
+                            </small>
+
+                        </div>
+
+
+                        <div class="preview-stat">
+
+                            <div class="stat-icon">↕</div>
+
+                            <span>Price changes</span>
+
+                            <strong>7</strong>
+
+                            <small class="positive">
+                                ↑ 3 since yesterday
+                            </small>
+
+                        </div>
+
+
+                        <div class="preview-stat">
+
+                            <div class="stat-icon">◉</div>
+
+                            <span>Stock changes</span>
+
+                            <strong>3</strong>
+
+                            <small class="warning">
+                                Requires attention
+                            </small>
+
+                        </div>
+
+
+                        <div class="preview-stat">
+
+                            <div class="stat-icon">✓</div>
+
+                            <span>Checks today</span>
+
+                            <strong>142</strong>
+
+                            <small class="neutral">
+                                Running normally
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-content-grid">
+
+                        <div class="preview-panel">
+
+                            <div class="preview-section-header">
+
+                                <div>
+                                    <span class="preview-label">
+                                        RECENT ACTIVITY
+                                    </span>
+
+                                    <h4>
+                                        What changed
+                                    </h4>
+                                </div>
+
+                                <span class="view-all">
+                                    View all →
+                                </span>
+
+                            </div>
+
+
+                            <div class="change-table">
+
+                                <div class="change-row table-heading">
+                                    <span>Product</span>
+                                    <span>Competitor</span>
+                                    <span>Change</span>
+                                    <span>Time</span>
+                                </div>
+
+
+                                <div class="change-row">
+
+                                    <div class="product-cell">
+
+                                        <div class="product-icon">
+                                            A
+                                        </div>
+
+                                        <div>
+                                            <strong>Air Max 90</strong>
+                                            <small>Running shoes</small>
+                                        </div>
+
+                                    </div>
+
+                                    <span>Nike</span>
+
+                                    <span class="change price-down">
+                                        ↓ $20
+                                    </span>
+
+                                    <span>12m</span>
+
+                                </div>
+
+
+                                <div class="change-row">
+
+                                    <div class="product-cell">
+
+                                        <div class="product-icon">
+                                            M
+                                        </div>
+
+                                        <div>
+                                            <strong>MacBook Air</strong>
+                                            <small>13-inch / M4</small>
+                                        </div>
+
+                                    </div>
+
+                                    <span>Apple</span>
+
+                                    <span class="change stock-out">
+                                        Out of stock
+                                    </span>
+
+                                    <span>34m</span>
+
+                                </div>
+
+
+                                <div class="change-row">
+
+                                    <div class="product-cell">
+
+                                        <div class="product-icon">
+                                            S
+                                        </div>
+
+                                        <div>
+                                            <strong>WH-1000XM6</strong>
+                                            <small>Wireless headphones</small>
+                                        </div>
+
+                                    </div>
+
+                                    <span>Sony</span>
+
+                                    <span class="change price-up">
+                                        ↑ $10
+                                    </span>
+
+                                    <span>1h</span>
+
+                                </div>
+
+
+                                <div class="change-row">
+
+                                    <div class="product-cell">
+
+                                        <div class="product-icon">
+                                            N
+                                        </div>
+
+                                        <div>
+                                            <strong>Nike Pegasus</strong>
+                                            <small>Men's running</small>
+                                        </div>
+
+                                    </div>
+
+                                    <span>Nike</span>
+
+                                    <span class="change stock-in">
+                                        Back in stock
+                                    </span>
+
+                                    <span>2h</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="preview-panel side-panel">
+
+                            <div class="preview-section-header">
+
+                                <div>
+                                    <span class="preview-label">
+                                        MARKET
+                                    </span>
+
+                                    <h4>
+                                        Competitors
+                                    </h4>
+                                </div>
+
+                            </div>
+
+
+                            <div class="competitor-list">
+
+                                <div class="competitor-row">
+
+                                    <div class="competitor-avatar nike">
+                                        N
+                                    </div>
+
+                                    <div>
+                                        <strong>Nike</strong>
+                                        <small>8 products</small>
+                                    </div>
+
+                                    <span class="competitor-change">
+                                        2 changes
+                                    </span>
+
+                                </div>
+
+
+                                <div class="competitor-row">
+
+                                    <div class="competitor-avatar apple">
+                                        A
+                                    </div>
+
+                                    <div>
+                                        <strong>Apple</strong>
+                                        <small>5 products</small>
+                                    </div>
+
+                                    <span class="competitor-change">
+                                        1 change
+                                    </span>
+
+                                </div>
+
+
+                                <div class="competitor-row">
+
+                                    <div class="competitor-avatar sony">
+                                        S
+                                    </div>
+
+                                    <div>
+                                        <strong>Sony</strong>
+                                        <small>6 products</small>
+                                    </div>
+
+                                    <span class="competitor-change">
+                                        3 changes
+                                    </span>
+
+                                </div>
+
+
+                                <div class="competitor-row">
+
+                                    <div class="competitor-avatar adidas">
+                                        A
+                                    </div>
+
+                                    <div>
+                                        <strong>Adidas</strong>
+                                        <small>5 products</small>
+                                    </div>
+
+                                    <span class="competitor-change">
+                                        1 change
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- MARKET STRIP -->
+
+<section class="market-strip">
+
+<div class="market-strip-inner">
+
+    <span class="market-strip-label">
+        MONITOR WHAT MATTERS
+    </span>
+
+    <div class="market-item">
+        <span class="market-icon">↕</span>
+        Price changes
+    </div>
+
+    <div class="market-item">
+        <span class="market-icon">◉</span>
+        Stock availability
+    </div>
+
+    <div class="market-item">
+        <span class="market-icon">□</span>
+        Product changes
+    </div>
+
+    <div class="market-item">
+        <span class="market-icon">!</span>
+        Important alerts
+    </div>
+
+    <div class="market-item">
+        <span class="market-icon">↗</span>
+        Historical data
+    </div>
+
+</div>
+
+</section>
+
+<!-- POSITIONING -->
+
+<section class="positioning">
+
+<div class="positioning-inner">
+
+    <p>
+        BUILT FOR ONLINE STORES THAT NEED TO KNOW
+    </p>
+
+    <div class="positioning-line">
+        Your competitors change.
+        <strong>Your decisions should change with them.</strong>
+    </div>
+
+</div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section id="how-it-works" class="how-section">
+
+<div class="section-heading">
+
+    <div>
+        <span class="section-eyebrow">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            From URL to
+            <span>competitive intelligence.</span>
+        </h2>
+    </div>
+
+    <p>
+        Set up a product once. Competitor Monitor handles the repetitive
+        checking so you can focus on what the changes actually mean.
+    </p>
+
+</div>
+
+
+<div class="steps">
+
+    <article class="step">
+
+        <div class="step-top">
+            <div class="step-number">01</div>
+            <span class="step-arrow">↗</span>
+        </div>
+
+        <div class="step-icon">+</div>
+
+        <h3>
+            Add a competitor
+        </h3>
+
+        <p>
+            Enter the competitor website you want to monitor.
+        </p>
+
+        <div class="step-example">
+            competitor.com
+        </div>
+
+    </article>
+
+
+    <article class="step">
+
+        <div class="step-top">
+            <div class="step-number">02</div>
+            <span class="step-arrow">↗</span>
+        </div>
+
+        <div class="step-icon">□</div>
+
+        <h3>
+            Add a product
+        </h3>
+
+        <p>
+            Give us the product URL and select the information
+            you want to monitor.
+        </p>
+
+        <div class="step-example">
+            product / price / stock
+        </div>
+
+    </article>
+
+
+    <article class="step">
+
+        <div class="step-top">
+            <div class="step-number">03</div>
+            <span class="step-arrow">↗</span>
+        </div>
+
+        <div class="step-icon">◌</div>
+
+        <h3>
+            Monitor automatically
+        </h3>
+
+        <p>
+            Scheduled checks collect fresh product data and
+            store snapshots over time.
+        </p>
+
+        <div class="step-example">
+            CHECK → RECORD → COMPARE
+        </div>
+
+    </article>
+
+
+    <article class="step">
+
+        <div class="step-top">
+            <div class="step-number">04</div>
+            <span class="step-arrow">↗</span>
+        </div>
+
+        <div class="step-icon">!</div>
+
+        <h3>
+            React to changes
+        </h3>
+
+        <p>
+            See meaningful changes in your dashboard and get
+            notified when something important happens.
+        </p>
+
+        <div class="step-example">
+            CHANGE DETECTED
+        </div>
+
+    </article>
+
+</div>
+
+
+</section>
+
+<!-- FEATURES -->
+
+<section id="features" class="features-section">
+
+
+<div class="section-heading centered">
+
+    <span class="section-eyebrow">
+        THE MONITOR
+    </span>
+
+    <h2>
+        A clearer view of
+        <span>your market.</span>
+    </h2>
+
+    <p>
+        The goal isn't more data. It's knowing which changes
+        deserve your attention.
+    </p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+    <!-- PRICE -->
+
+    <article class="feature feature-large">
+
+        <div class="feature-copy">
+
+            <div class="feature-number">01</div>
+
+            <h3>
+                Price monitoring
+            </h3>
+
+            <p>
+                Know when competitors raise or lower the price
+                of products you're watching.
+            </p>
+
+        </div>
+
+
+        <div class="feature-visual price-visual">
+
+            <div class="mini-price-header">
+
+                <div>
+                    <small>PRODUCT</small>
+                    <span>MacBook Air M4</span>
+                </div>
+
+                <div class="visual-period">
+                    Last 30 days
+                </div>
+
+            </div>
+
+
+            <div class="chart-area">
+
+                <div class="chart-y-axis">
+                    <span>$1,050</span>
+                    <span>$1,000</span>
+                    <span>$950</span>
+                    <span>$900</span>
+                    <span>$850</span>
+                </div>
+
+                <div class="chart">
+
+                    <div class="chart-grid">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <svg
+                        viewBox="0 0 600 180"
+                        preserveAspectRatio="none"
+                        class="price-chart"
+                    >
+                        <defs>
+                            <linearGradient
+                                id="priceGradient"
+                                x1="0"
+                                x2="0"
+                                y1="0"
+                                y2="1"
+                            >
+                                <stop offset="0%" stop-opacity=".18"/>
+                                <stop offset="100%" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+
+                        <path
+                            d="M0 42
+                               C50 38 70 52 110 48
+                               C155 43 175 62 215 70
+                               C255 78 280 62 320 75
+                               C360 88 380 104 420 96
+                               C460 88 485 108 520 121
+                               C550 132 575 128 600 145
+                               L600 180 L0 180 Z"
+                            fill="url(#priceGradient)"
+                        />
+
+                        <path
+                            d="M0 42
+                               C50 38 70 52 110 48
+                               C155 43 175 62 215 70
+                               C255 78 280 62 320 75
+                               C360 88 380 104 420 96
+                               C460 88 485 108 520 121
+                               C550 132 575 128 600 145"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-bottom">
+
+                <span>Jun 01</span>
+                <span>Jun 08</span>
+                <span>Jun 15</span>
+                <span>Jun 22</span>
+                <span>Jun 30</span>
+
+            </div>
+
+
+            <div class="chart-current">
+
+                <span>Current price</span>
+
+                <strong>
+                    $899
+                </strong>
+
+                <small>
+                    ↓ $100
+                </small>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- STOCK -->
+
+    <article class="feature">
+
+        <div class="feature-copy">
+
+            <div class="feature-number">02</div>
+
+            <h3>
+                Stock changes
+            </h3>
+
+            <p>
+                See when products go out of stock or become
+                available again.
+            </p>
+
+        </div>
+
+
+        <div class="stock-card">
+
+            <div class="stock-card-top">
+
+                <div class="stock-product-icon">
+                    WH
+                </div>
+
+                <div>
+                    <strong>
+                        WH-1000XM6
+                    </strong>
+
+                    <small>
+                        Sony
+                    </small>
+                </div>
+
+                <span class="stock-time">
+                    12m
+                </span>
+
+            </div>
+
+
+            <div class="stock-status">
+
+                <span class="status-dot"></span>
+
+                Out of stock
+
+            </div>
+
+
+            <div class="stock-history">
+
+                <span class="stock-line active"></span>
+                <span class="stock-line active"></span>
+                <span class="stock-line"></span>
+                <span class="stock-line"></span>
+
+            </div>
+
+            <small>
+                Last available 3 hours ago
+            </small>
+
+        </div>
+
+    </article>
+
+
+    <!-- HISTORY -->
+
+    <article class="feature">
+
+        <div class="feature-copy">
+
+            <div class="feature-number">03</div>
+
+            <h3>
+                Price history
+            </h3>
+
+            <p>
+                Keep historical snapshots so you can understand
+                how competitor pricing evolves.
+            </p>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <div class="history-card-header">
+
+                <span>
+                    PRICE HISTORY
+                </span>
+
+                <span>
+                    30 DAYS
+                </span>
+
+            </div>
+
+
+            <div class="history-price">
+
+                <strong>
+                    $859
+                </strong>
+
+                <span>
+                    Current
+                </span>
+
+            </div>
+
+
+            <div class="history-bars">
+
+                <i style="height: 72%"></i>
+                <i style="height: 58%"></i>
+                <i style="height: 65%"></i>
+                <i style="height: 48%"></i>
+                <i style="height: 54%"></i>
+                <i style="height: 39%"></i>
+                <i style="height: 32%"></i>
+                <i style="height: 25%"></i>
+            </div>
+
+
+            <div class="history-footer">
+
+                <span>
+                    ↓ $40 this month
+                </span>
+
+                <span>
+                    Lowest: $849
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- ALERTS -->
+
+    <article class="feature feature-wide">
+
+        <div class="feature-wide-copy">
+
+            <div class="feature-number">
+                04
+            </div>
+
+            <h3>
+                Change alerts
+            </h3>
+
+            <p>
+                You don't need to keep opening the dashboard.
+                Important changes can become alerts so you know
+                when something needs attention.
+            </p>
+
+            <div class="alert-types">
+
+                <span>Price drops</span>
+                <span>Price increases</span>
+                <span>Out of stock</span>
+                <span>Back in stock</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-stack">
+
+            <div class="notification-preview notification-back">
+
+                <div class="notification-icon">
+                    ↕
+                </div>
+
+                <div>
+                    <strong>
+                        Price changed
+                    </strong>
+
+                    <p>
+                        MacBook Air dropped from $949 to $899.
+                    </p>
+                </div>
+
+                <span>
+                    2m
+                </span>
+
+            </div>
+
+
+            <div class="notification-preview">
+
+                <div class="notification-icon warning-icon">
+                    !
+                </div>
+
+                <div>
+                    <strong>
+                        Stock changed
+                    </strong>
+
+                    <p>
+                        Sony WH-1000XM6 is now out of stock.
+                    </p>
+                </div>
+
+                <span>
+                    now
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+
+</section>
+
+<!-- PROBLEM -->
+
+<section class="why-section">
+
+
+<div class="why-content">
+
+    <span class="section-eyebrow">
+        THE PROBLEM
+    </span>
+
+    <h2>
+        Your competitors don't
+        <span>announce when they change.</span>
+    </h2>
+
+    <p>
+        A competitor can change a price at 2 AM, sell out of a
+        product before lunch, or quietly change a product page.
+    </p>
+
+    <p>
+        You shouldn't need someone checking their websites
+        every few hours just to notice.
+    </p>
+
+</div>
+
+
+<div class="why-statement">
+
+    <div class="manual-label">
+        <span class="problem-dot"></span>
+        THE OLD WAY
+    </div>
+
+    <div class="comparison-line">
+
+        <span>Open websites</span>
+        <strong>→</strong>
+        <span>Check products</span>
+        <strong>→</strong>
+        <span>Record changes</span>
+
+    </div>
+
+
+    <div class="manual-time">
+        <span>Every day</span>
+        <strong>+</strong>
+        <span>Every competitor</span>
+        <strong>+</strong>
+        <span>Every product</span>
+    </div>
+
+
+    <div class="automated-label">
+        <span class="automation-dot"></span>
+        WITH COMPETITOR MONITOR
+    </div>
+
+    <div class="comparison-line automated">
+
+        <span>Monitor once</span>
+        <strong>→</strong>
+        <span>Automatic checks</span>
+        <strong>→</strong>
+        <span>See changes</span>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- DATA SECTION -->
+
+<section class="data-section">
+
+
+<div class="data-section-heading">
+
+    <span class="section-eyebrow">
+        ONE PLACE
+    </span>
+
+    <h2>
+        Stop collecting information.
+        <span>Start seeing patterns.</span>
+    </h2>
+
+</div>
+
+
+<div class="data-dashboard">
+
+    <div class="data-dashboard-top">
+
+        <div>
+            <small>MARKET OVERVIEW</small>
+            <strong>Competitive activity</strong>
+        </div>
+
+        <span>
+            Last 30 days
+        </span>
+
+    </div>
+
+
+    <div class="data-metrics">
+
+        <div>
+            <small>Products tracked</small>
+            <strong>124</strong>
+            <span>↑ 18 this month</span>
+        </div>
+
+        <div>
+            <small>Price changes</small>
+            <strong>38</strong>
+            <span>Across 12 competitors</span>
+        </div>
+
+        <div>
+            <small>Stock changes</small>
+            <strong>16</strong>
+            <span>9 require attention</span>
+        </div>
+
+        <div>
+            <small>Competitors</small>
+            <strong>12</strong>
+            <span>Across 4 categories</span>
+        </div>
+
+    </div>
+
+
+    <div class="data-activity">
+
+        <div class="activity-heading">
+            <span>RECENT CHANGES</span>
+            <span>STATUS</span>
+        </div>
+
+
+        <div class="activity-row">
+
+            <div class="activity-product">
+                <span>A</span>
+                <div>
+                    <strong>Air Max 90</strong>
+                    <small>Nike</small>
+                </div>
+            </div>
+
+            <div class="activity-change down">
+                Price ↓ $20
+            </div>
+
+            <div class="activity-status">
+                Detected
+            </div>
+
+        </div>
+
+
+        <div class="activity-row">
+
+            <div class="activity-product">
+                <span>M</span>
+                <div>
+                    <strong>MacBook Air M4</strong>
+                    <small>Apple</small>
+                </div>
+            </div>
+
+            <div class="activity-change out">
+                Out of stock
+            </div>
+
+            <div class="activity-status">
+                Attention
+            </div>
+
+        </div>
+
+
+        <div class="activity-row">
+
+            <div class="activity-product">
+                <span>S</span>
+                <div>
+                    <strong>WH-1000XM6</strong>
+                    <small>Sony</small>
+                </div>
+            </div>
+
+            <div class="activity-change up">
+                Price ↑ $10
+            </div>
+
+            <div class="activity-status">
+                Detected
+            </div>
+
+        </div>
+
+
+        <div class="activity-row">
+
+            <div class="activity-product">
+                <span>N</span>
+                <div>
+                    <strong>Pegasus 41</strong>
+                    <small>Nike</small>
+                </div>
+            </div>
+
+            <div class="activity-change in">
+                Back in stock
+            </div>
+
+            <div class="activity-status">
+                Detected
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+
+
+<div class="final-cta-grid">
+
+    <div>
+
+        <span class="section-eyebrow">
+            READY?
+        </span>
+
+        <h2>
+            Stop checking.
+            <span>Start knowing.</span>
+        </h2>
+
+        <p>
+            Put your competitor monitoring on autopilot
+            and spend your time acting on the information.
+        </p>
+
+    </div>
+
+
+    <div class="final-cta-action">
+
+        <a href="/auth/register" class="cta-button">
+            Create your account
+            <span>↗</span>
+        </a>
+
+        <small>
+            No complicated setup.
+        </small>
+
+    </div>
+
+</div>
+
+
+</section>
+
+</main>
+<!-- WAITLIST -->
+
+<section id="waitlist" class="waitlist-section">
+
+    <div class="section-heading centered">
+
+        <span class="section-eyebrow">
+            EARLY ACCESS
+        </span>
+
+        <h2>
+            Reserve your spot,
+            <span>save on launch pricing.</span>
+        </h2>
+
+        <p>
+            Join the early access list and get 50% off your first
+            3 months when we launch. No payment required today.
+        </p>
+
+    </div>
+
+    <div class="waitlist-card">
+
+        <form action="/waitlist" method="POST" class="waitlist-form">
+            <input type="email" name="email" placeholder="you@yourstore.com" required>
+            <input type="url" name="store_url" placeholder="Your store URL (optional)">
+            <select name="feature_interest">
+                <option value="">Which matters most to you?</option>
+                <option value="price">Price change alerts</option>
+                <option value="stock">Stock availability alerts</option>
+                <option value="history">Stock and price alerts and history</option>
+            </select>
+            <button type="submit" class="primary-button">Reserve your spot</button>
+        </form>
+
+        <% if (typeof joined !== 'undefined' && joined) { %>
+            <p class="waitlist-message success">You're on the list — we'll email you when we launch.</p>
+        <% } %>
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p class="waitlist-message error"><%= error %></p>
+        <% } %>
+
+    </div>
+
+</section>
+
+<footer>
+
+<div class="footer-container">
+
+    <div class="footer-brand">
+
+        <a href="/" class="brand">
+            <span class="brand-mark">C</span>
+            <span>Competitor Monitor</span>
+        </a>
+
+        <p>
+            Competitive intelligence for online stores.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <div>
+
+            <span>PRODUCT</span>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#how-it-works">
+                How it works
+            </a>
+
+            <a href="#pricing">
+                Pricing
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <span>ACCOUNT</span>
+
+            <a href="/auth/login">
+                Log in
+            </a>
+
+            <a href="/auth/register">
+                Create account
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <span>
+        © <%= new Date().getFullYear() %> Competitor Monitor
+    </span>
+
+    <span>
+        Built for competitive businesses.
+    </span>
+
+</div>
+
+
+</footer>
+
+</body>
+</html>

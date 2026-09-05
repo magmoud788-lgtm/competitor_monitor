@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waitlist Signups</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <header>
+        <h1>Waitlist Signups</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2><%= signups.length %> total</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Store URL</th>
+                        <th>Interest</th>
+                        <th>Joined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% signups.forEach(s => { %>
+                        <tr>
+                            <td><%= s.email %></td>
+                            <td><%= s.store_url || '—' %></td>
+                            <td><%= s.feature_interest || '—' %></td>
+                            <td><%= new Date(s.created_at).toLocaleString() %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

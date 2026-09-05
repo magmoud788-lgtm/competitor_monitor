@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracked Products</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <header>
+        <h1>Tracked Products</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/competitors">Competitors</a>
+            <a href="/products">Products</a>
+            <a href="/account">Account</a>
+            <a href="/#waitlist">Early access</a>
+            <form action="/auth/logout" method="POST" style="display: inline;">
+                <button type="submit">Logout</button>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
+        <section>
+            <h2>Track a Product</h2>
+            <form action="/products" method="POST">
+                <div>
+                    <label for="competitor_id">
+                        Competitor
+                    </label>
+                    <select
+                        id="competitor_id"
+                        name="competitor_id"
+                        required
+                    >
+                        <option value="">
+                            Select a competitor
+                        </option>
+                        <% competitors.forEach(competitor => { %>
+                            <option value="<%= competitor.id %>">
+                                <%= competitor.name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="name">
+                        Product Name
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Product name"
+                        required
+                    >
+                </div>
+                <div>
+                    <label for="product_url">
+                        Product URL
+                    </label>
+                    <input
+                        type="url"
+                        id="product_url"
+                        name="product_url"
+                        placeholder="https://example.com/product"
+                        required
+                    >
+                </div>
+
+
+
+                <button type="submit">
+                    Start Tracking
+                </button>
+            </form>
+        </section>
+        <section>
+            <h2>Products You're Tracking</h2>
+            <% if (products.length === 0) { %>
+                <p>
+                    You aren't tracking any products yet.
+                </p>
+            <% } else { %>
+                <% products.forEach(product => { %>
+                    <article>
+                        <h3>
+                            <%= product.name %>
+                        </h3>
+                        <p>
+                            Competitor:
+                            <strong>
+                                <%= product.competitor_name %>
+                            </strong>
+                        </p>
+                        <form action="/products/<%= product.id %>/check" method="POST">
+    <button type="submit">Check Now</button>
+</form>
+                        <p>
+                            <a
+                                href="<%= product.product_url %>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Open Product
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/products/<%= product.id %>/history">
+                                View History
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/products/<%= product.id %>/edit">
+                                Edit
+                            </a>
+                        </p>
+                        <form
+                            action="/products/<%= product.id %>/delete"
+                            method="POST"
+                        >
+                            <button type="submit">
+                                Stop Tracking
+                            </button>
+                        </form>
+                    </article>
+                <% }) %>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>

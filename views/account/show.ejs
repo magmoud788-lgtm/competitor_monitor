@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <header>
+        <h1>Account</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/competitors">Competitors</a>
+            <a href="/products">Products</a>
+            <a href="/account">Account</a>
+            <a href="/#waitlist">Early access</a>
+        </nav>
+    </header>
+    <main>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
+        <section>
+            <h2>Profile</h2>
+            <form action="/account" method="POST">
+                <div>
+                    <label for="name">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="<%= user.name %>"
+                        required
+                    >
+                </div>
+                <div>
+                    <label for="email">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="<%= user.email %>"
+                        required
+                    >
+                </div>
+                <button type="submit">
+                    Save Changes
+                </button>
+            </form>
+        </section>
+        <section>
+            <h2>Email Notifications</h2>
+            <% if (user.notify_email) { %>
+                <p>
+                    Email notifications are currently enabled.
+                </p>
+                <form action="/account/notifications" method="POST">
+                    <button type="submit">
+                        Disable Notifications
+                    </button>
+                </form>
+            <% } else { %>
+                <p>
+                    Email notifications are currently disabled.
+                </p>
+                <form action="/account/notifications" method="POST">
+                    <button type="submit">
+                        Enable Notifications
+                    </button>
+                </form>
+            <% } %>
+        </section>
+        <section>
+            <h2>Delete Account</h2>
+            <p>
+                This permanently deletes your account and its associated data.
+            </p>
+            <form action="/account/delete" method="POST">
+                <button type="submit">
+                    Delete Account
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

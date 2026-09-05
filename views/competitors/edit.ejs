@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Competitor</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <main>
+        <h1>Edit Competitor</h1>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
+        <form
+            action="/competitors/<%= competitor.id %>/edit"
+            method="POST"
+        >
+            <div>
+                <label for="name">
+                    Competitor Name
+                </label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="<%= competitor.name %>"
+                    required
+                >
+            </div>
+            <div>
+                <label for="website_url">
+                    Website URL
+                </label>
+                <input
+                    type="url"
+                    id="website_url"
+                    name="website_url"
+                    value="<%= competitor.website_url %>"
+                    required
+                >
+            </div>
+            <button type="submit">
+                Save Changes
+            </button>
+        </form>
+        <p>
+            <a href="/competitors">Back to competitors</a>
+        </p>
+    </main>
+</body>
+</html>

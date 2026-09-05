@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Competitors</title>
+   <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel='stylesheet' href='/style.css'>
+</head>
+<body>
+    <header>
+        <h1>Your Competitors</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/competitors">Competitors</a>
+            <a href="/products">Products</a>
+            <a href="/account">Account</a>
+            <a href="/#waitlist">Early access</a>
+            <form action="/auth/logout" method="POST" style="display: inline;">
+                <button type="submit">Logout</button>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <% if (error) { %>
+            <p><%= error %></p>
+        <% } %>
+        <section>
+            <h2>Add Competitor</h2>
+            <form action="/competitors" method="POST">
+                <div>
+                    <label for="name">Competitor Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                    >
+                </div>
+                <div>
+                    <label for="website_url">Website URL</label>
+                    <input
+                        type="url"
+                        id="website_url"
+                        name="website_url"
+                        placeholder="https://example.com"
+                        required
+                    >
+                </div>
+                <button type="submit">
+                    Add Competitor
+                </button>
+            </form>
+        </section>
+        <section>
+            <h2>Your Competitors</h2>
+            <% if (competitors.length === 0) { %>
+                <p>
+                    You haven't added any competitors yet.
+                </p>
+            <% } else { %>
+                <% competitors.forEach(competitor => { %>
+                    <article>
+                        <h3>
+                            <%= competitor.name %>
+                        </h3>
+                        <p>
+                            <a
+                                href="<%= competitor.website_url %>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <%= competitor.website_url %>
+                            </a>
+                        </p>
+                        <a href="/competitors/<%= competitor.id %>/edit">
+                            Edit
+                        </a>
+                        <form
+                            action="/competitors/<%= competitor.id %>/delete"
+                            method="POST"
+                            style="display: inline;"
+                        >
+                            <button type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </article>
+                <% }) %>
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>
