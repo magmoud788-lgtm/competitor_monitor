@@ -40,7 +40,7 @@ async function register(req, res) {
         });
     }
 
-    res.redirect('/competitor/list');
+    res.redirect('/competitors');
 });
 }
 

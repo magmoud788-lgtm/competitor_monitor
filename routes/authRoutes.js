@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../passportConfig');
 const auth = require('../controllers/authController');
+const queries = require('../db/queries');
 
 router.get('/register', auth.showRegisterForm);
 router.post('/register', auth.register);
