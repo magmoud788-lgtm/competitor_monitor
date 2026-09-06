@@ -238,7 +238,22 @@ const createWaitlistSignup = (email, storeUrl, featureInterest) =>
     `INSERT INTO waitlist_signups (email, store_url, feature_interest)
      VALUES ($1, $2, $3) RETURNING *`,
     [email, storeUrl || null, featureInterest || null]
-  );
+  ); 
+
+  const debugDatabase = () => pool.query(`
+  SELECT
+    current_database(),
+    current_user,
+    current_schema(),
+    current_setting('search_path')
+`);
+
+const debugUsers = () => pool.query(`
+  SELECT table_schema, column_name
+  FROM information_schema.columns
+  WHERE table_name = 'users'
+  ORDER BY table_schema, ordinal_position
+`);
 
 const listWaitlistSignups = () =>
   pool.query(`SELECT * FROM waitlist_signups ORDER BY created_at DESC`);
@@ -255,5 +270,7 @@ module.exports = {
   createVerificationToken,
   consumeVerificationToken,
   createWaitlistSignup,
-  listWaitlistSignups
+  listWaitlistSignups,
+  debugDatabase,
+debugUsers
 };

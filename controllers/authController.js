@@ -14,12 +14,16 @@ async function register(req, res) {
   if (password.length < 8) {
     return res.render('auth/register', { error: 'Password must be at least 8 characters' });
   }
-const dbInfo = await pool.query(`
-  SELECT current_database(), current_user, current_schema()
-`);
+  
+  const db = await queries.debugDatabase();
+const users = await queries.debugUsers();
 
-console.log("DB INFO:", dbInfo.rows[0]);
+console.log('========== DATABASE ==========');
+console.log(db.rows[0]);
+console.log('========== USERS ==========');
+console.log(users.rows);
 
+const existing = await queries.findUserByEmail(email);
   const existing = await queries.findUserByEmail(email);
   if (existing.rows.length > 0) {
     return res.render('auth/register', { error: 'An account with that email already exists' });
