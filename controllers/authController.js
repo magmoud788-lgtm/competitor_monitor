@@ -14,7 +14,7 @@ async function register(req, res) {
   if (password.length < 8) {
     return res.render('auth/register', { error: 'Password must be at least 8 characters' });
   }
-  
+
   const db = await queries.debugDatabase();
 const users = await queries.debugUsers();
 
@@ -23,7 +23,6 @@ console.log(db.rows[0]);
 console.log('========== USERS ==========');
 console.log(users.rows);
 
-const existing = await queries.findUserByEmail(email);
   const existing = await queries.findUserByEmail(email);
   if (existing.rows.length > 0) {
     return res.render('auth/register', { error: 'An account with that email already exists' });
