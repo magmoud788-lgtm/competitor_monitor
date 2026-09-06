@@ -9,6 +9,7 @@ const createUser = (name, email, passwordHash) =>
     [name, email, passwordHash]
   );
 
+  
 const findUserByEmail = (email) =>
   pool.query(`SELECT * FROM users WHERE email = $1`, [email]);
 

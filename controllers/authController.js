@@ -14,6 +14,11 @@ async function register(req, res) {
   if (password.length < 8) {
     return res.render('auth/register', { error: 'Password must be at least 8 characters' });
   }
+const dbInfo = await pool.query(`
+  SELECT current_database(), current_user, current_schema()
+`);
+
+console.log("DB INFO:", dbInfo.rows[0]);
 
   const existing = await queries.findUserByEmail(email);
   if (existing.rows.length > 0) {
