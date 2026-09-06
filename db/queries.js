@@ -10,11 +10,6 @@ const checkUsersTable = () =>
     ORDER BY ordinal_position
   `);
 
-console.log("REGISTER DB CHECK START");
-
-const dbCheck = await queries.checkUsersTable();
-
-console.log("REGISTER DB CHECK:", dbCheck.rows);
 const createUser = (name, email, passwordHash) =>
   pool.query(
     `INSERT INTO public.users (name, email, password_hash)

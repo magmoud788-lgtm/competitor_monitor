@@ -23,6 +23,13 @@ async function register(req, res) {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
+
+  console.log("REGISTER DB CHECK START");
+
+const dbCheck = await queries.checkUsersTable();
+
+console.log("REGISTER DB CHECK:", dbCheck.rows);
+
   const result = await queries.createUser(name, email, passwordHash);
   const newUser = result.rows[0];
 
