@@ -65,7 +65,12 @@ app.get("/", (req, res) => {
     });
 });
 
+app.use((err, req, res, next) => {
+  console.error('🔥 REAL ERROR:', err);
+  console.error(err.stack);
 
+  res.status(500).send('there is an error in the app pls try again later');
+});
 // =========================
 
 
