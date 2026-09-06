@@ -7,6 +7,7 @@ function showRegisterForm(req, res) {
 const { sendAlertEmail } = require('../services/email');
 
 async function register(req, res) {
+  console.log("REGISTER STARTED");
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
     return res.render('auth/register', { error: 'name, email, and password are required' });
