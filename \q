@@ -1,0 +1,26 @@
+const pool = require('./db/pool');
+
+async function check() {
+  try {
+    const db = await pool.query(`
+      SELECT current_database(), current_schema()
+    `);
+
+    console.log('DATABASE:', db.rows);
+
+    const columns = await pool.query(`
+      SELECT table_schema, column_name, data_type
+      FROM information_schema.columns
+      WHERE table_name = 'users'
+      ORDER BY table_schema, ordinal_position
+    `);
+
+    console.log('USERS TABLES:', columns.rows);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await pool.end();
+  }
+}
+
+check();
