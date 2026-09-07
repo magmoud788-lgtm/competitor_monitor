@@ -28,7 +28,7 @@ async function viewSignups(req, res) {
   }
 
   const result = await queries.listWaitlistSignups();
-  res.render('waitlist/admin', { signups: result.rows });
+  res.render('waitlist/list', { signups: result.rows });
 }
 
 module.exports = { join, viewSignups };
