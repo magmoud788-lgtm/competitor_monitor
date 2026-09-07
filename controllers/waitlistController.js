@@ -21,9 +21,11 @@ async function join(req, res) {
 
 // in a controller, or add to waitlistController.js
 async function viewSignups(req, res) {
+  console.log("req.userId:", req.userId, typeof req.userId);
+  console.log("ADMIN_USER_ID:", process.env.ADMIN_USER_ID, typeof process.env.ADMIN_USER_ID);
   console.log("req.user:", req.user);
 
-  if (!req.user || !req.user.admin) {
+  if (req.userId !== Number(process.env.ADMIN_USER_ID)) {
     return res.status(403).send('Not authorized');
   }
 
