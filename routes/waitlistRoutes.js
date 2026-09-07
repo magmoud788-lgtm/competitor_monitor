@@ -4,6 +4,6 @@ const waitlistController = require('../controllers/waitlistController');
 const { requireAuth } = require('../middleware/auth');
 
 router.post('/', waitlistController.join);
-router.get('/waitlist/list', requireAuth, waitlistController.viewSignups);
+router.get('/list', requireAuth, waitlistController.viewSignups);
 
 module.exports = router;
