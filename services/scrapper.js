@@ -490,30 +490,48 @@ function tryAutoDetect($) {
 
 /* ---------------- MAIN SCRAPER ---------------- */
 async function detectAvailability(page) {
-    const buttons = await page.locator(
-        'button[aria-label^="Select size "]'
-    ).evaluateAll(buttons =>
-        buttons.map(button => ({
-            disabled: button.disabled,
-            visible: !!(
-                button.offsetWidth ||
-                button.offsetHeight ||
-                button.getClientRects().length
-            )
-        }))
-    );
+    const evidence = await page.evaluate(() => {
+        const elements = [...document.querySelectorAll(
+            "button, [role='button'], input, [aria-label], " +
+            "[data-stock], [data-availability], " +
+            "[class*='stock'], [class*='Stock'], " +
+            "[class*='availability'], [class*='Availability']"
+        )];
 
-    if (buttons.length === 0) {
-        return "unknown";
-    }
+        return elements
+            .map(el => ({
+                tag: el.tagName,
+                text: el.innerText?.trim() || "",
+                ariaLabel: el.getAttribute("aria-label"),
+                ariaDisabled: el.getAttribute("aria-disabled"),
+                disabled: el.disabled ?? false,
+                dataStock: el.getAttribute("data-stock"),
+                dataAvailability: el.getAttribute("data-availability"),
+                className: typeof el.className === "string"
+                    ? el.className
+                    : "",
+                visible: !!(
+                    el.offsetWidth ||
+                    el.offsetHeight ||
+                    el.getClientRects().length
+                ),
+                outerHTML: el.outerHTML.slice(0, 1000)
+            }))
+            .filter(el =>
+                el.text ||
+                el.ariaLabel ||
+                el.dataStock ||
+                el.dataAvailability ||
+                /stock|availab|sold|inventory|unavailable/i.test(
+                    `${el.className} ${el.outerHTML}`
+                )
+            );
+    });
 
-    const availableSizes = buttons.filter(
-        button => button.visible && !button.disabled
-    );
+    console.log("GENERIC STOCK EVIDENCE:");
+    console.dir(evidence, { depth: null });
 
-    return availableSizes.length > 0
-        ? "in_stock"
-        : "out_of_stock";
+    return "unknown";
 }
 
 async function validateProductPage(url, priceSelector) {
