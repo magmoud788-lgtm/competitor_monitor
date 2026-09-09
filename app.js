@@ -65,6 +65,14 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get('/terms', (req, res) => {
+    res.render('terms');
+});
+
+app.get('/policy', (req, res) => {
+    res.render('policy');
+});
+
 app.use((err, req, res, next) => {
   console.error('🔥 REAL ERROR:', err);
   console.error(err.stack);

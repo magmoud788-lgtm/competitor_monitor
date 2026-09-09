@@ -490,26 +490,25 @@ function tryAutoDetect($) {
 
 /* ---------------- MAIN SCRAPER ---------------- */
 async function detectAvailability(page) {
-    try {
-        await page.waitForSelector("button.btn-size", { timeout: 10000 });
-    } catch {
-        return "unknown"; // never rendered — don't guess out_of_stock
-    }
-
-    const buttons = await page.locator("button.btn-size").evaluateAll(buttons =>
-        buttons
-            .filter(button => /^\d+(\.\d+)?$/.test(button.innerText.trim()))
-            .map(button => ({
-                disabled: button.disabled,
-                visible: !!(button.offsetWidth || button.offsetHeight || button.getClientRects().length)
-            }))
+    const elements = await page.locator(
+        "button, input, [role='button'], [aria-label], [data-availability], [data-stock]"
+    ).evaluateAll(elements =>
+        elements.map(el => ({
+            tag: el.tagName,
+            text: el.innerText?.trim(),
+            aria: el.getAttribute("aria-label"),
+            disabled: el.disabled,
+            type: el.getAttribute("type"),
+            name: el.getAttribute("name"),
+            value: el.getAttribute("value"),
+            dataAvailability: el.getAttribute("data-availability"),
+            dataStock: el.getAttribute("data-stock")
+        }))
     );
 
-    if (buttons.length === 0) return "unknown";
+    console.log("AVAILABILITY ELEMENTS:", elements);
 
-    const availableSizes = buttons.filter(b => b.visible && !b.disabled);
-
-    return availableSizes.length > 0 ? "in_stock" : "out_of_stock";
+    return "unknown";
 }
 
 async function validateProductPage(url, priceSelector) {

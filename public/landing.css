@@ -3324,3 +3324,245 @@ footer {
     height: 130%;
     object-fit: contain;
 }
+/* =========================================================
+   LEGAL PAGES
+   ========================================================= */
+
+.legal-page {
+    width: min(calc(100% - 48px), 900px);
+    margin-inline: auto;
+    padding: 92px 0 110px;
+}
+
+.legal-header {
+    margin-bottom: 48px;
+}
+
+.legal-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    color: #8b929c;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.legal-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #15171a;
+    box-shadow: 0 0 0 4px #eceef1;
+}
+
+.legal-header h1 {
+    margin: 0 0 15px;
+
+    color: #111315;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(44px, 7vw, 68px);
+    line-height: .98;
+    font-weight: 800;
+    letter-spacing: -.055em;
+}
+
+.legal-effective {
+    margin: 0;
+
+    color: #8b929c;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.legal-card {
+    padding: 48px;
+
+    border: 1px solid #e1e4e7;
+    border-radius: 18px;
+
+    background: #fff;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .05),
+        0 2px 8px rgba(15, 23, 42, .03);
+}
+
+.legal-card section {
+    margin: 0 0 38px;
+    padding: 0 0 38px;
+
+    border-bottom: 1px solid #edf0f2;
+}
+
+.legal-card section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.legal-card h2 {
+    margin: 0 0 15px;
+
+    color: #15171a;
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.035em;
+}
+
+.legal-card h3 {
+    margin: 26px 0 10px;
+
+    color: #30343a;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.legal-card p {
+    margin: 0 0 16px;
+
+    color: #626872;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.legal-card p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-card strong {
+    color: #30343a;
+}
+
+.legal-card ul {
+    margin: 12px 0 18px;
+    padding-left: 22px;
+
+    color: #626872;
+}
+
+.legal-card li {
+    margin-bottom: 9px;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.legal-card li:last-child {
+    margin-bottom: 0;
+}
+
+.legal-card a {
+    color: #15171a;
+    font-weight: 700;
+
+    text-decoration: underline;
+    text-decoration-color: #ccd0d5;
+    text-underline-offset: 3px;
+
+    transition:
+        color .2s ease,
+        text-decoration-color .2s ease;
+}
+
+.legal-card a:hover {
+    color: #626872;
+    text-decoration-color: #626872;
+}
+
+.legal-contact {
+    padding: 20px 22px;
+
+    border: 1px solid #e3e6e9;
+    border-radius: 10px;
+
+    background: #f7f8fa;
+}
+
+.legal-contact p {
+    margin: 0;
+}
+
+.legal-contact p + p {
+    margin-top: 7px;
+}
+
+.legal-footer {
+    width: min(calc(100% - 48px), 900px);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 0 0 36px;
+
+    color: #8b929c;
+    font-size: 12px;
+}
+
+.legal-footer a {
+    color: inherit;
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+.legal-footer a:hover {
+    color: #15171a;
+}
+
+@media (max-width: 800px) {
+    .legal-page {
+        padding-top: 70px;
+    }
+
+    .legal-card {
+        padding: 34px;
+    }
+}
+
+@media (max-width: 600px) {
+    .legal-page {
+        width: min(calc(100% - 30px), 900px);
+        padding: 58px 0 70px;
+    }
+
+    .legal-header {
+        margin-bottom: 34px;
+    }
+
+    .legal-header h1 {
+        font-size: 42px;
+    }
+
+    .legal-card {
+        padding: 26px 21px;
+        border-radius: 14px;
+    }
+
+    .legal-card h2 {
+        font-size: 20px;
+    }
+
+    .legal-card p,
+    .legal-card li {
+        font-size: 13.5px;
+    }
+
+    .legal-footer {
+        width: min(calc(100% - 30px), 900px);
+        padding-bottom: 25px;
+        flex-wrap: wrap;
+    }
+}
