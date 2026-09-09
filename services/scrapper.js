@@ -490,25 +490,30 @@ function tryAutoDetect($) {
 
 /* ---------------- MAIN SCRAPER ---------------- */
 async function detectAvailability(page) {
-    const elements = await page.locator(
-        "button, input, [role='button'], [aria-label], [data-availability], [data-stock]"
-    ).evaluateAll(elements =>
-        elements.map(el => ({
-            tag: el.tagName,
-            text: el.innerText?.trim(),
-            aria: el.getAttribute("aria-label"),
-            disabled: el.disabled,
-            type: el.getAttribute("type"),
-            name: el.getAttribute("name"),
-            value: el.getAttribute("value"),
-            dataAvailability: el.getAttribute("data-availability"),
-            dataStock: el.getAttribute("data-stock")
+    const buttons = await page.locator(
+        'button[aria-label^="Select size "]'
+    ).evaluateAll(buttons =>
+        buttons.map(button => ({
+            disabled: button.disabled,
+            visible: !!(
+                button.offsetWidth ||
+                button.offsetHeight ||
+                button.getClientRects().length
+            )
         }))
     );
 
-    console.log("AVAILABILITY ELEMENTS:", elements);
+    if (buttons.length === 0) {
+        return "unknown";
+    }
 
-    return "unknown";
+    const availableSizes = buttons.filter(
+        button => button.visible && !button.disabled
+    );
+
+    return availableSizes.length > 0
+        ? "in_stock"
+        : "out_of_stock";
 }
 
 async function validateProductPage(url, priceSelector) {
