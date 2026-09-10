@@ -1,70 +1,35 @@
-/* =========================================================
-   WEBSITE MONITOR — APPLICATION UI
-   style.css
-   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 :root {
-    --bg: #f7f8fc;
-    --surface: #ffffff;
-    --surface-soft: #f9fafb;
+    --bg: #181818;
+    --surface: #202020;
+    --surface-2: #242424;
+    --surface-3: #292929;
 
-    --text: #111827;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
+    --border: #343434;
+    --border-light: #3d3d3d;
 
-    --border: #e5e7eb;
-    --border-strong: #d1d5db;
+    --text: #f1f1ed;
+    --text-soft: #c7c7c1;
+    --muted: #92928c;
 
-    --primary: #111827;
-    --primary-hover: #1f2937;
+    --accent: #d7ff45;
+    --accent-hover: #e2ff73;
+    --accent-dark: #a8c72d;
 
-    --success: #15803d;
-    --success-bg: #f0fdf4;
+    --danger: #ff6b6b;
 
-    --danger: #dc2626;
-    --danger-hover: #b91c1c;
-    --danger-bg: #fef2f2;
+    --radius: 14px;
+    --radius-lg: 20px;
 
-    --warning: #b45309;
-    --warning-bg: #fffbeb;
-
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-
-    --shadow-sm:
-        0 1px 2px rgba(0, 0, 0, 0.04);
-
-    --shadow-md:
-        0 4px 12px rgba(0, 0, 0, 0.06),
-        0 1px 3px rgba(0, 0, 0, 0.04);
-
-    --shadow-lg:
-        0 20px 40px rgba(0, 0, 0, 0.08);
-
-    --max-width: 1180px;
-
-    font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
 }
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
     scroll-behavior: smooth;
 }
 
@@ -72,169 +37,136 @@ body {
     margin: 0;
     min-height: 100vh;
 
-    background: var(--bg);
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(255, 255, 255, 0.035),
+            transparent 38%
+        ),
+        var(--bg);
+
     color: var(--text);
-
-    font-family: inherit;
+    font-family: "DM Sans", sans-serif;
     line-height: 1.6;
-
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }
 
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
+body::selection {
+    background: var(--accent);
+    color: #111;
 }
 
 a {
-    color: inherit;
+    color: var(--text-soft);
+    text-decoration: none;
+    transition:
+        color 0.18s ease,
+        opacity 0.18s ease;
 }
 
-
-/* =========================================================
-   HEADER / NAVIGATION
-   ========================================================= */
+a:hover {
+    color: var(--text);
+}
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 28px 0;
 
-    background: rgba(255, 255, 255, 0.92);
-    border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
 }
 
-header > h1,
-header > nav {
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
-}
+header h1 {
+    margin: 0;
 
-header > h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 18px;
-
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
 }
 
 nav {
     display: flex;
     align-items: center;
-    gap: 6px;
-
-    padding-top: 10px;
-    padding-bottom: 14px;
+    gap: 8px;
 }
 
 nav a {
-    position: relative;
+    padding: 8px 13px;
+    border-radius: 9px;
 
-    padding: 7px 11px;
-
-    color: var(--text-secondary);
-    text-decoration: none;
-
-    font-size: 0.9rem;
+    color: var(--muted);
+    font-size: 14px;
     font-weight: 500;
-
-    border-radius: var(--radius-sm);
-
-    transition:
-        color 0.15s ease,
-        background 0.15s ease;
 }
 
 nav a:hover {
     color: var(--text);
-    background: #f3f4f6;
+    background: rgba(255, 255, 255, 0.045);
 }
-
-nav form {
-    margin-left: auto;
-}
-
-nav form button {
-    margin: 0;
-}
-
-
-/* =========================================================
-   MAIN LAYOUT
-   ========================================================= */
 
 main {
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
-
+    width: min(1000px, calc(100% - 40px));
     margin: 0 auto;
-    padding: 48px 0 80px;
+    padding: 64px 0 100px;
 }
 
 main > h1 {
-    margin: 0 0 28px;
+    margin: 0 0 10px;
 
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    line-height: 1.15;
-    letter-spacing: -0.04em;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
 }
 
 main > h2 {
-    margin-top: 0;
+    margin-top: 50px;
+
+    font-family: "Manrope", sans-serif;
+    letter-spacing: -0.025em;
 }
 
-
-/* =========================================================
-   SECTIONS
-   ========================================================= */
+main > p {
+    color: var(--muted);
+}
 
 section {
-    margin-bottom: 28px;
+    margin-top: 28px;
     padding: 28px;
 
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
 
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
 }
 
 section h2 {
     margin: 0 0 22px;
 
-    font-size: 1.15rem;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    font-family: "Manrope", sans-serif;
+    font-size: 21px;
+    letter-spacing: -0.025em;
 }
 
 section h3 {
     margin: 0 0 8px;
 
-    font-size: 1.05rem;
-    line-height: 1.35;
-    letter-spacing: -0.015em;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
 }
 
+section p {
+    color: var(--muted);
+}
 
-/* =========================================================
-   FORMS
-   ========================================================= */
+form {
+    margin: 0;
+}
 
 form > div {
     margin-bottom: 18px;
@@ -242,10 +174,10 @@ form > div {
 
 label {
     display: block;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
-    color: var(--text);
-    font-size: 0.875rem;
+    color: var(--text-soft);
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -253,126 +185,86 @@ input,
 select,
 textarea {
     width: 100%;
-
-    min-height: 44px;
-    padding: 10px 13px;
+    padding: 12px 14px;
 
     color: var(--text);
-    background: var(--surface);
+    background: var(--surface-2);
 
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
 
     outline: none;
 
+    font: inherit;
+    font-size: 14px;
+
     transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: var(--text-muted);
+    color: #70706b;
 }
 
 input:hover,
 select:hover,
 textarea:hover {
-    border-color: #b9bec7;
+    border-color: #4a4a4a;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #6b7280;
+    border-color: var(--accent);
+    background: #272727;
 
     box-shadow:
-        0 0 0 3px rgba(17, 24, 39, 0.08);
+        0 0 0 3px rgba(215, 255, 69, 0.08);
 }
-
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
 
 button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
+    border: 0;
+    border-radius: 10px;
 
-    min-height: 42px;
-    padding: 9px 15px;
+    padding: 11px 17px;
 
-    color: #ffffff;
-    background: var(--primary);
+    background: var(--text);
+    color: #171717;
 
-    border: 1px solid var(--primary);
-    border-radius: var(--radius-sm);
-
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
 
     cursor: pointer;
 
-    box-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.08);
-
     transition:
+        transform 0.15s ease,
         background 0.15s ease,
-        border-color 0.15s ease,
-        transform 0.1s ease,
         box-shadow 0.15s ease;
 }
 
 button:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
+    transform: translateY(-1px);
+    background: #ffffff;
 
-    box-shadow:
-        0 3px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    transform: translateY(1px);
+    transform: translateY(0);
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible {
-    outline: 3px solid rgba(17, 24, 39, 0.16);
-    outline-offset: 2px;
+form button[type="submit"] {
+    background: var(--accent);
+    color: #171717;
 }
 
-button[type="submit"] {
-    margin-top: 4px;
+form button[type="submit"]:hover {
+    background: var(--accent-hover);
 }
-
-
-/* =========================================================
-   LINKS
-   ========================================================= */
-
-main a:not(nav a) {
-    color: #374151;
-    font-weight: 500;
-}
-
-main a:not(nav a):hover {
-    color: #111827;
-}
-
-
-/* =========================================================
-   PRODUCT / COMPETITOR CARDS
-   ========================================================= */
 
 article {
     position: relative;
@@ -380,358 +272,189 @@ article {
     margin-top: 14px;
     padding: 22px;
 
-    background: var(--surface);
+    background: var(--surface-2);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-
-    box-shadow: var(--shadow-sm);
+    border-radius: 15px;
 
     transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease,
-        transform 0.15s ease;
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 article:hover {
-    border-color: #d6dae1;
-
-    box-shadow: var(--shadow-md);
-
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    border-color: var(--border-light);
+    background: var(--surface-3);
 }
 
 article p {
     margin: 7px 0;
-
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
-article strong {
-    color: var(--text);
-    font-weight: 600;
+article a {
+    font-size: 14px;
 }
 
 article form {
     display: inline-block;
-    margin: 8px 8px 0 0;
+    margin-right: 7px;
 }
 
-article > a {
-    display: inline-block;
-    margin: 8px 12px 0 0;
-
-    font-size: 0.875rem;
+article form button {
+    padding: 8px 12px;
+    font-size: 13px;
 }
 
-
-/* =========================================================
-   DANGER BUTTONS
-   ========================================================= */
-
-/*
-   Your current HTML doesn't have a danger class.
-   These selectors target account deletion and stop/delete
-   forms without requiring EJS changes.
-*/
-
-form[action$="/delete"] button,
-form[action*="/delete"] button {
-    color: #ffffff;
-    background: var(--danger);
-    border-color: var(--danger);
+strong {
+    color: var(--text);
+    font-weight: 600;
 }
-
-form[action$="/delete"] button:hover,
-form[action*="/delete"] button:hover {
-    background: var(--danger-hover);
-    border-color: var(--danger-hover);
-}
-
-
-/* =========================================================
-   WARNING BANNER
-   ========================================================= */
-
-.warning-banner {
-    margin-top: 8px;
-    padding: 11px 13px;
-
-    color: var(--warning);
-    background: var(--warning-bg);
-
-    border: 1px solid #fde68a;
-    border-radius: var(--radius-sm);
-
-    font-size: 0.8rem;
-    line-height: 1.45;
-}
-
-
-/* =========================================================
-   HISTORY TABLE
-   ========================================================= */
 
 table {
     width: 100%;
-
-    border-collapse: separate;
-    border-spacing: 0;
-
+    border-collapse: collapse;
     overflow: hidden;
 
-    background: var(--surface);
-
+    background: var(--surface-2);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-
-    box-shadow: var(--shadow-sm);
+    border-radius: 14px;
 }
 
-thead {
-    background: #f9fafb;
-}
-
-th {
-    padding: 13px 16px;
-
-    color: #4b5563;
+th,
+td {
+    padding: 15px 16px;
+    text-align: left;
 
     border-bottom: 1px solid var(--border);
 
-    font-size: 0.75rem;
+    font-size: 14px;
+}
+
+th {
+    color: var(--muted);
+    background: #222222;
+
+    font-size: 12px;
     font-weight: 700;
-    text-align: left;
     text-transform: uppercase;
-    letter-spacing: 0.045em;
+    letter-spacing: 0.06em;
 }
 
 td {
-    padding: 15px 16px;
-
-    color: var(--text-secondary);
-
-    border-bottom: 1px solid #f0f1f3;
-
-    font-size: 0.875rem;
-    vertical-align: top;
+    color: var(--text-soft);
 }
 
-tbody tr:last-child td {
-    border-bottom: none;
+tr:last-child td {
+    border-bottom: 0;
 }
 
-tbody tr {
-    transition: background 0.12s ease;
-}
+.warning-banner {
+    margin-top: 10px;
+    padding: 11px 13px;
 
-tbody tr:hover {
-    background: #fafafa;
-}
-
-
-/* Stock status text */
-
-td:nth-child(3) {
-    color: var(--text);
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   ERROR MESSAGES
-   ========================================================= */
-
-main > p:first-child,
-section > p:first-child {
-    color: var(--text-secondary);
-}
-
-
-/*
-   This catches EJS error output reasonably without requiring
-   you to add a class immediately.
-*/
-
-p:has(+ form[action="/account"]) {
-    margin-bottom: 18px;
-}
-
-
-/* =========================================================
-   ACCOUNT PAGE
-   ========================================================= */
-
-section p {
-    color: var(--text-secondary);
-}
-
-section form {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   AUTH PAGES
-   ========================================================= */
-
-/*
-   Login/register pages use <main> directly without a header.
-   Center the form and make it feel like a real SaaS auth screen.
-*/
-
-body:has(main > h1:first-child) main {
-    width: min(
-        calc(100% - 32px),
-        440px
-    );
-
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-body:has(main > h1:first-child) main > h1 {
-    margin-bottom: 24px;
-
-    text-align: center;
-}
-
-body:has(main > h1:first-child) main > form {
-    padding: 28px;
-
-    background: var(--surface);
+    color: #c9c9c3;
+    background: rgba(255, 255, 255, 0.035);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 9px;
 
-    box-shadow: var(--shadow-lg);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-body:has(main > h1:first-child) main > p {
-    color: var(--text-secondary);
+.error,
+.error-message {
+    padding: 12px 14px;
 
-    font-size: 0.875rem;
-    text-align: center;
+    color: #ffb0b0;
+    background: rgba(255, 107, 107, 0.07);
+
+    border: 1px solid rgba(255, 107, 107, 0.22);
+    border-radius: 10px;
 }
 
-body:has(main > h1:first-child) main > p a {
-    color: var(--text);
-    font-weight: 600;
+main > p a {
+    color: var(--accent);
 }
 
-
-/* =========================================================
-   EMPTY STATES
-   ========================================================= */
-
-section > p {
-    line-height: 1.6;
+main > p a:hover {
+    color: var(--accent-hover);
 }
 
-section > p:last-child {
-    color: var(--text-secondary);
+select {
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #999 50%),
+        linear-gradient(135deg, #999 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 50%,
+        calc(100% - 12px) 50%;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
 }
 
+hr {
+    height: 1px;
+    margin: 35px 0;
 
-/* =========================================================
-   PRODUCT HISTORY SPECIFIC
-   ========================================================= */
-
-table + p {
-    margin-top: 22px;
+    border: 0;
+    background: var(--border);
 }
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 
 @media (max-width: 760px) {
+    header {
+        width: min(100% - 28px, 1000px);
 
-    header > h1,
-    header > nav {
-        width: calc(100% - 28px);
-    }
-
-    header > h1 {
-        padding-top: 15px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
     }
 
     nav {
-        overflow-x: auto;
-
-        padding-bottom: 12px;
-
-        scrollbar-width: none;
-    }
-
-    nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    nav a {
-        white-space: nowrap;
-    }
-
-    nav form {
-        flex-shrink: 0;
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     main {
-        width: min(
-            calc(100% - 24px),
-            var(--max-width)
-        );
-
-        padding-top: 30px;
-        padding-bottom: 50px;
+        width: min(100% - 28px, 1000px);
+        padding-top: 42px;
     }
 
     section {
         padding: 20px;
     }
 
-    article {
-        padding: 18px;
-    }
-
-    /*
-       Make history table horizontally scrollable.
-    */
-
     table {
         display: block;
         overflow-x: auto;
-
-        white-space: nowrap;
     }
 
     th,
     td {
-        padding: 12px;
+        white-space: nowrap;
     }
 }
 
-
 @media (max-width: 480px) {
-
-    main {
-        width: calc(100% - 20px);
+    nav {
+        gap: 3px;
     }
 
-    section {
-        padding: 17px;
-        border-radius: var(--radius-md);
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
     }
 
     article {
-        padding: 16px;
+        padding: 17px;
     }
 
     button {
@@ -740,244 +463,18 @@ table + p {
 
     article form {
         display: block;
-        margin-right: 0;
-    }
-
-    article > a {
-        display: block;
-        margin-top: 12px;
-    }
-
-    nav form button {
-        width: auto;
-    }
-
-    body:has(main > h1:first-child) main > form {
-        padding: 21px;
+        margin: 8px 0;
     }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
-    }
-}
-.legal-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin: 40px 0 25px;
-    padding-top: 20px;
-    border-top: 1px solid #e5e7eb;
-    color: #8b929c;
-    font-size: 12px;
+.delete-account-btn {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+    border: 1px solid #ff0000 !important;
+    padding: 10px 18px;
 }
 
-.legal-footer a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.legal-footer a:hover {
-    color: #15171a;
-}
-/* =========================================================
-   LEGAL PAGES — TERMS & PRIVACY
-   ========================================================= */
-
-.legal-page {
-    width: min(calc(100% - 48px), 900px);
-    margin: 0 auto;
-    padding: 90px 0 110px;
-}
-
-.legal-header {
-    margin-bottom: 52px;
-}
-
-.legal-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 18px;
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-}
-
-.legal-eyebrow::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-soft);
-}
-
-.legal-page h1 {
-    margin: 0 0 14px;
-    color: var(--text);
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(42px, 6vw, 64px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -.05em;
-}
-
-.legal-effective {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 13px;
-}
-
-.legal-card {
-    padding: 42px 46px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background: var(--surface);
-    box-shadow: var(--shadow-sm);
-}
-
-.legal-card section {
-    padding: 0 0 34px;
-    margin: 0 0 34px;
-    border-bottom: 1px solid #edf0f2;
-}
-
-.legal-card section:last-child {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: 0;
-}
-
-.legal-card h2 {
-    margin: 0 0 14px;
-    color: var(--text);
-    font-family: "Manrope", sans-serif;
-    font-size: 22px;
-    line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -.035em;
-}
-
-.legal-card h3 {
-    margin: 24px 0 10px;
-    color: #30343a;
-    font-family: "Manrope", sans-serif;
-    font-size: 15px;
-    line-height: 1.2;
-    font-weight: 800;
-}
-
-.legal-card p {
-    margin: 0 0 15px;
-    color: var(--text-soft);
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.legal-card p:last-child {
-    margin-bottom: 0;
-}
-
-.legal-card ul {
-    margin: 12px 0 18px;
-    padding-left: 22px;
-    color: var(--text-soft);
-}
-
-.legal-card li {
-    margin-bottom: 9px;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.legal-card a {
-    color: var(--text);
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: #cfd3d8;
-    text-underline-offset: 3px;
-    transition: color .2s ease, text-decoration-color .2s ease;
-}
-
-.legal-card a:hover {
-    color: #626872;
-    text-decoration-color: #626872;
-}
-
-.legal-contact {
-    padding: 18px 20px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--surface-soft);
-}
-
-.legal-contact p {
-    margin: 0;
-}
-
-.legal-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-    width: min(calc(100% - 48px), 900px);
-    margin: 0 auto;
-    padding: 0 0 35px;
-    color: var(--text-muted);
-    font-size: 12px;
-}
-
-.legal-footer a {
-    color: inherit;
-    text-decoration: none;
-    transition: color .2s ease;
-}
-
-.legal-footer a:hover {
-    color: var(--text);
-}
-
-@media (max-width: 600px) {
-    .legal-page {
-        width: min(calc(100% - 30px), 900px);
-        padding: 60px 0 75px;
-    }
-
-    .legal-card {
-        padding: 28px 22px;
-        border-radius: 14px;
-    }
-
-    .legal-page h1 {
-        font-size: 42px;
-    }
-
-    .legal-card h2 {
-        font-size: 20px;
-    }
-
-    .legal-card p,
-    .legal-card li {
-        font-size: 13.5px;
-    }
-
-    .legal-footer {
-        width: min(calc(100% - 30px), 900px);
-        padding-bottom: 25px;
-    }
+.delete-account-btn:hover {
+    background-color: #cc0000 !important;
+    border-color: #cc0000 !important;
 }

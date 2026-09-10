@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Rivalo — Know When Your Market Moves</title>
 
-<title>Competitor Monitor — Competitive Intelligence for Online Stores</title>
+    <meta
+        name="description"
+        content="Rivalo monitors competitor product pages for price and availability changes, stores historical snapshots, and alerts you when supported changes are detected."
+    >
 
-<meta
-    name="description"
-    content="Track competitor prices, stock and product changes automatically. Know what your market is doing without constantly checking websites."
->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-<link rel="stylesheet" href="/landing.css">
-
-
-
+    <link rel="stylesheet" href="/landing.css">
 </head>
 
 <body>
@@ -33,566 +29,227 @@
 <header class="landing-nav">
     <div class="nav-container">
 
-
-      
-    <a href="/" class="brand">
-    <span class="brand-mark">
-        <img src="/favicon.png" alt="Rivalo">
-    </span>
-    <span>Rivalo</span>
-</a>
-
-    <nav class="desktop-nav">
-        <a href="#how-it-works">How it works</a>
-        <a href="#features">Features</a>
-     
-        <a href="/#waitlist">Early access</a>
-
-    </nav>
-
-    <div class="nav-actions">
-    <a href="/auth/login" class="login-link">Log in</a>
-
-    <% if (isAuthenticated) { %>
-        <a href="/competitors" class="monitoring-button">
-            Start Monitoring
+        <a href="/" class="brand">
+            <span class="brand-mark">
+                <img src="/favicon.png" alt="Rivalo">
+            </span>
+            <span>Rivalo</span>
         </a>
-    <% } else { %>
-        <a href="/auth/register" class="monitoring-button">
-            Start Monitoring
-        </a>
-    <% } %>
-</div>
 
-<form action="/auth/logout" method="POST" class="logout-link" style="display: inline;">
-                <button type="submit">Logout</button>
-            </form>
-</div>
+        <nav class="desktop-nav">
+            <a href="#how-it-works">How it works</a>
+            <a href="#features">Features</a>
+            <a href="/#waitlist">Early access</a>
+        </nav>
 
+        <div class="nav-actions">
+            <a href="/auth/login" class="login-link">Log in</a>
 
+            <% if (isAuthenticated) { %>
+                <a href="/competitors" class="monitoring-button">
+                    Start Monitoring
+                </a>
+            <% } else { %>
+                <a href="/auth/register" class="monitoring-button">
+                    Start Monitoring
+                </a>
+            <% } %>
+        </div>
+
+        <form action="/auth/logout" method="POST" class="logout-link" style="display: inline;">
+            <button type="submit">Logout</button>
+        </form>
+
+    </div>
 </header>
 
 <main>
 
-<!-- HERO -->
+    <!-- HERO -->
+    <section class="hero">
 
-<section class="hero">
+        <div class="hero-grid">
 
+            <div class="hero-content">
 
-<div class="hero-grid">
-
-    <div class="hero-content">
-
-        <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            COMPETITIVE INTELLIGENCE
-        </div>
-
-        <h1>
-            Your competitors
-            <span>move.</span>
-            Now you know.
-        </h1>
-
-        <p class="hero-description">
-            Competitor Monitor watches the products you care about
-            and tells you when prices or stock change.
-            No spreadsheets. No constant checking.
-        </p>
-
-        <div class="hero-actions">
-
-            <% if (isAuthenticated) { %>
-        <a href="/competitors" class="monitoring-button">
-            Start Monitoring
-        </a>
-    <% } else { %>
-        <a href="/auth/register" class="monitoring-button">
-            Start Monitoring
-        </a>
-    <% } %>
-
-            <a href="#how-it-works" class="secondary-button">
-                See how it works
-                <span>↓</span>
-            </a>
-
-        </div>
-
-        <div class="hero-proof">
-
-            <div class="proof-item">
-                <strong>24/7</strong>
-                <span>automated monitoring</span>
-            </div>
-
-            <div class="proof-divider"></div>
-
-            <div class="proof-item">
-                <strong>Price</strong>
-                <span>and stock changes</span>
-            </div>
-
-            <div class="proof-divider"></div>
-
-            <div class="proof-item">
-                <strong>Alerts</strong>
-                <span>when something changes</span>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PRODUCT -->
-
-    <div class="hero-product">
-
-        <div class="product-glow"></div>
-
-        <div class="browser-window">
-
-            <div class="browser-bar">
-
-                <div class="browser-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    COMPETITOR MONITORING
                 </div>
 
-                <div class="browser-url">
-                    <span class="browser-lock">⌁</span>
-                    app.competitormonitor.com
-                </div>
+                <h1>
+                    Know when
+                    <span>the market moves.</span>
+                </h1>
 
-                <div class="browser-window-action">
-                    •••
-                </div>
+                <p class="hero-description">
+                    Rivalo watches the competitor product pages you choose,
+                    records the information it can reliably detect, and helps
+                    you spot meaningful price and availability changes over time.
+                </p>
 
-            </div>
+                <div class="hero-actions">
 
-
-            <div class="dashboard-preview">
-
-                <aside class="preview-sidebar">
-
-                    <div class="preview-logo">
-                        <span class="preview-logo-mark">C</span>
-                    </div>
-
-                    <div class="sidebar-group">
-
-                        <div class="sidebar-label">
-                            WORKSPACE
-                        </div>
-
-                        <div class="sidebar-item active">
-                            <span>◈</span>
-                            Overview
-                        </div>
-
-                        <div class="sidebar-item">
-                            <span>□</span>
-                            Products
-                        </div>
-
-                        <div class="sidebar-item">
-                            <span>◎</span>
-                            Competitors
-                        </div>
-
-                        <div class="sidebar-item">
-                            <span>!</span>
-                            Alerts
-                            <b>3</b>
-                        </div>
-
-                    </div>
-
-                    <div class="sidebar-group sidebar-group-second">
-
-                        <div class="sidebar-label">
-                            MANAGEMENT
-                        </div>
-
-                        <div class="sidebar-item">
+                    <% if (isAuthenticated) { %>
+                        <a href="/competitors" class="monitoring-button hero-button">
+                            Start Monitoring
                             <span>↗</span>
-                            Activity
+                        </a>
+                    <% } else { %>
+                        <a href="/auth/register" class="monitoring-button hero-button">
+                            Start Monitoring
+                            <span>↗</span>
+                        </a>
+                    <% } %>
+
+                    <a href="#how-it-works" class="secondary-button">
+                        See how it works
+                        <span>↓</span>
+                    </a>
+
+                </div>
+
+                <div class="hero-proof">
+
+                    <div class="proof-item">
+                        <strong>Scheduled</strong>
+                        <span>automatic checks</span>
+                    </div>
+
+                    <div class="proof-divider"></div>
+
+                    <div class="proof-item">
+                        <strong>Snapshots</strong>
+                        <span>kept over time</span>
+                    </div>
+
+                    <div class="proof-divider"></div>
+
+                    <div class="proof-item">
+                        <strong>Alerts</strong>
+                        <span>when changes are detected</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT VISUAL -->
+            <div class="hero-product">
+
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+
+                <div class="monitor-card">
+
+                    <div class="monitor-card-top">
+                        <div class="monitor-status">
+                            <span class="status-pulse"></span>
+                            MONITORED PRODUCT
                         </div>
 
-                        <div class="sidebar-item">
-                            <span>⚙</span>
-                            Settings
+                        <span class="monitor-menu">•••</span>
+                    </div>
+
+                    <div class="url-field">
+                        <span class="url-icon">↗</span>
+                        <span>competitor.com/products/example-product</span>
+                    </div>
+
+                    <div class="monitor-product">
+
+                        <div class="product-placeholder">
+                            <div class="product-placeholder-inner"></div>
+                        </div>
+
+                        <div class="monitor-product-info">
+                            <span class="mini-label">PRODUCT PAGE</span>
+                            <h3>Example Product</h3>
+                            <p>Specific product URL</p>
                         </div>
 
                     </div>
 
-                    <div class="sidebar-bottom">
+                    <div class="detected-grid">
 
-                        <div class="preview-user">
+                        <div class="detected-item">
+                            <span>PRICE</span>
+                            <strong>Detected</strong>
+                            <small>when available</small>
+                        </div>
 
-                            <div class="preview-avatar">
-                                JD
-                            </div>
-
-                            <div>
-                                <strong>John Doe</strong>
-                                <small>Workspace</small>
-                            </div>
-
-                            <span>•••</span>
-
+                        <div class="detected-item">
+                            <span>AVAILABILITY</span>
+                            <strong class="unknown-value">Unknown</strong>
+                            <small>when page cannot confirm</small>
                         </div>
 
                     </div>
 
-                </aside>
-
-
-                <div class="preview-main">
-
-                    <div class="preview-topbar">
-
-                        <div class="preview-breadcrumb">
-                            Workspace
-                            <span>/</span>
-                            Overview
-                        </div>
-
-                        <div class="preview-top-actions">
-                            <span class="preview-search">⌕ Search</span>
-                            <span class="preview-notification">♢</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="preview-header">
+                    <div class="monitor-footer">
 
                         <div>
-
-                            <p class="preview-label">
-                                OVERVIEW
-                            </p>
-
-                            <h3>
-                                Market activity
-                            </h3>
-
-                            <p class="preview-subtitle">
-                                Here's what changed across your market.
-                            </p>
-
+                            <span class="mini-label">SNAPSHOT</span>
+                            <strong>Stored automatically</strong>
                         </div>
 
-                        <button class="preview-add">
-                            <span>+</span>
-                            Add product
-                        </button>
-
-                    </div>
-
-
-                    <div class="preview-stats">
-
-                        <div class="preview-stat">
-
-                            <div class="stat-icon">□</div>
-
-                            <span>Tracked products</span>
-
-                            <strong>24</strong>
-
-                            <small>
-                                Across 6 competitors
-                            </small>
-
-                        </div>
-
-
-                        <div class="preview-stat">
-
-                            <div class="stat-icon">↕</div>
-
-                            <span>Price changes</span>
-
-                            <strong>7</strong>
-
-                            <small class="positive">
-                                ↑ 3 since yesterday
-                            </small>
-
-                        </div>
-
-
-                        <div class="preview-stat">
-
-                            <div class="stat-icon">◉</div>
-
-                            <span>Stock changes</span>
-
-                            <strong>3</strong>
-
-                            <small class="warning">
-                                Requires attention
-                            </small>
-
-                        </div>
-
-
-                        <div class="preview-stat">
-
-                            <div class="stat-icon">✓</div>
-
-                            <span>Checks today</span>
-
-                            <strong>142</strong>
-
-                            <small class="neutral">
-                                Running normally
-                            </small>
-
+                        <div class="snapshot-icon">
+                            ✓
                         </div>
 
                     </div>
 
-
-                    <div class="preview-content-grid">
-
-                        <div class="preview-panel">
-
-                            <div class="preview-section-header">
-
-                                <div>
-                                    <span class="preview-label">
-                                        RECENT ACTIVITY
-                                    </span>
-
-                                    <h4>
-                                        What changed
-                                    </h4>
-                                </div>
-
-                                <span class="view-all">
-                                    View all →
-                                </span>
-
-                            </div>
+                </div>
 
 
-                            <div class="change-table">
+                <div class="pipeline-card">
 
-                                <div class="change-row table-heading">
-                                    <span>Product</span>
-                                    <span>Competitor</span>
-                                    <span>Change</span>
-                                    <span>Time</span>
-                                </div>
+                    <div class="pipeline-title">
+                        <span>MONITORING FLOW</span>
+                        <span class="pipeline-line"></span>
+                    </div>
 
+                    <div class="pipeline">
 
-                                <div class="change-row">
-
-                                    <div class="product-cell">
-
-                                        <div class="product-icon">
-                                            A
-                                        </div>
-
-                                        <div>
-                                            <strong>Air Max 90</strong>
-                                            <small>Running shoes</small>
-                                        </div>
-
-                                    </div>
-
-                                    <span>Nike</span>
-
-                                    <span class="change price-down">
-                                        ↓ $20
-                                    </span>
-
-                                    <span>12m</span>
-
-                                </div>
-
-
-                                <div class="change-row">
-
-                                    <div class="product-cell">
-
-                                        <div class="product-icon">
-                                            M
-                                        </div>
-
-                                        <div>
-                                            <strong>MacBook Air</strong>
-                                            <small>13-inch / M4</small>
-                                        </div>
-
-                                    </div>
-
-                                    <span>Apple</span>
-
-                                    <span class="change stock-out">
-                                        Out of stock
-                                    </span>
-
-                                    <span>34m</span>
-
-                                </div>
-
-
-                                <div class="change-row">
-
-                                    <div class="product-cell">
-
-                                        <div class="product-icon">
-                                            S
-                                        </div>
-
-                                        <div>
-                                            <strong>WH-1000XM6</strong>
-                                            <small>Wireless headphones</small>
-                                        </div>
-
-                                    </div>
-
-                                    <span>Sony</span>
-
-                                    <span class="change price-up">
-                                        ↑ $10
-                                    </span>
-
-                                    <span>1h</span>
-
-                                </div>
-
-
-                                <div class="change-row">
-
-                                    <div class="product-cell">
-
-                                        <div class="product-icon">
-                                            N
-                                        </div>
-
-                                        <div>
-                                            <strong>Nike Pegasus</strong>
-                                            <small>Men's running</small>
-                                        </div>
-
-                                    </div>
-
-                                    <span>Nike</span>
-
-                                    <span class="change stock-in">
-                                        Back in stock
-                                    </span>
-
-                                    <span>2h</span>
-
-                                </div>
-
-                            </div>
-
+                        <div class="pipeline-step active">
+                            <span>01</span>
+                            <strong>CHECK</strong>
                         </div>
 
+                        <div class="pipeline-connector"></div>
 
-                        <div class="preview-panel side-panel">
-
-                            <div class="preview-section-header">
-
-                                <div>
-                                    <span class="preview-label">
-                                        MARKET
-                                    </span>
-
-                                    <h4>
-                                        Competitors
-                                    </h4>
-                                </div>
-
-                            </div>
-
-
-                            <div class="competitor-list">
-
-                                <div class="competitor-row">
-
-                                    <div class="competitor-avatar nike">
-                                        N
-                                    </div>
-
-                                    <div>
-                                        <strong>Nike</strong>
-                                        <small>8 products</small>
-                                    </div>
-
-                                    <span class="competitor-change">
-                                        2 changes
-                                    </span>
-
-                                </div>
-
-
-                                <div class="competitor-row">
-
-                                    <div class="competitor-avatar apple">
-                                        A
-                                    </div>
-
-                                    <div>
-                                        <strong>Apple</strong>
-                                        <small>5 products</small>
-                                    </div>
-
-                                    <span class="competitor-change">
-                                        1 change
-                                    </span>
-
-                                </div>
-
-
-                                <div class="competitor-row">
-
-                                    <div class="competitor-avatar sony">
-                                        S
-                                    </div>
-
-                                    <div>
-                                        <strong>Sony</strong>
-                                        <small>6 products</small>
-                                    </div>
-
-                                    <span class="competitor-change">
-                                        3 changes
-                                    </span>
-
-                                </div>
-
-
-                                <div class="competitor-row">
-
-                                    <div class="competitor-avatar adidas">
-                                        A
-                                    </div>
-
-                                    <div>
-                                        <strong>Adidas</strong>
-                                        <small>5 products</small>
-                                    </div>
-
-                                    <span class="competitor-change">
-                                        1 change
-                                    </span>
-
-                                </div>
-
-                            </div>
-
+                        <div class="pipeline-step active">
+                            <span>02</span>
+                            <strong>SNAPSHOT</strong>
                         </div>
 
+                        <div class="pipeline-connector"></div>
+
+                        <div class="pipeline-step">
+                            <span>03</span>
+                            <strong>COMPARE</strong>
+                        </div>
+
+                        <div class="pipeline-connector"></div>
+
+                        <div class="pipeline-step">
+                            <span>04</span>
+                            <strong>ALERT</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="floating-state">
+
+                    <span class="floating-state-dot"></span>
+
+                    <div>
+                        <small>DETECTION STATE</small>
+                        <strong>Only report what the page supports.</strong>
                     </div>
 
                 </div>
@@ -601,1064 +258,972 @@
 
         </div>
 
-    </div>
+    </section>
 
-</div>
 
-</section>
+    <!-- MARKET STRIP -->
+    <section class="market-strip">
 
-<!-- MARKET STRIP -->
+        <div class="market-strip-inner">
 
-<section class="market-strip">
+            <span class="market-strip-label">
+                MONITOR WHAT MATTERS
+            </span>
 
-<div class="market-strip-inner">
-
-    <span class="market-strip-label">
-        MONITOR WHAT MATTERS
-    </span>
-
-    <div class="market-item">
-        <span class="market-icon">↕</span>
-        Price changes
-    </div>
-
-    <div class="market-item">
-        <span class="market-icon">◉</span>
-        Stock availability
-    </div>
-
-    <div class="market-item">
-        <span class="market-icon">□</span>
-        Product changes
-    </div>
-
-    <div class="market-item">
-        <span class="market-icon">!</span>
-        Important alerts
-    </div>
-
-    <div class="market-item">
-        <span class="market-icon">↗</span>
-        Historical data
-    </div>
-
-</div>
-
-</section>
-
-<!-- POSITIONING -->
-
-<section class="positioning">
-
-<div class="positioning-inner">
-
-    <p>
-        BUILT FOR ONLINE STORES THAT NEED TO KNOW
-    </p>
-
-    <div class="positioning-line">
-        Your competitors change.
-        <strong>Your decisions should change with them.</strong>
-    </div>
-
-</div>
-
-</section>
-
-<!-- HOW IT WORKS -->
-
-<section id="how-it-works" class="how-section">
-
-<div class="section-heading">
-
-    <div>
-        <span class="section-eyebrow">
-            HOW IT WORKS
-        </span>
-
-        <h2>
-            From URL to
-            <span>competitive intelligence.</span>
-        </h2>
-    </div>
-
-    <p>
-        Set up a product once. Competitor Monitor handles the repetitive
-        checking so you can focus on what the changes actually mean.
-    </p>
-
-</div>
-
-
-<div class="steps">
-
-    <article class="step">
-
-        <div class="step-top">
-            <div class="step-number">01</div>
-            <span class="step-arrow">↗</span>
-        </div>
-
-        <div class="step-icon">+</div>
-
-        <h3>
-            Add a competitor
-        </h3>
-
-        <p>
-            Enter the competitor website you want to monitor.
-        </p>
-
-        <div class="step-example">
-            competitor.com
-        </div>
-
-    </article>
-
-
-    <article class="step">
-
-        <div class="step-top">
-            <div class="step-number">02</div>
-            <span class="step-arrow">↗</span>
-        </div>
-
-        <div class="step-icon">□</div>
-
-        <h3>
-            Add a product
-        </h3>
-
-        <p>
-            Give us the product URL and select the information
-            you want to monitor.
-        </p>
-
-        <div class="step-example">
-            product / price / stock
-        </div>
-
-    </article>
-
-
-    <article class="step">
-
-        <div class="step-top">
-            <div class="step-number">03</div>
-            <span class="step-arrow">↗</span>
-        </div>
-
-        <div class="step-icon">◌</div>
-
-        <h3>
-            Monitor automatically
-        </h3>
-
-        <p>
-            Scheduled checks collect fresh product data and
-            store snapshots over time.
-        </p>
-
-        <div class="step-example">
-            CHECK → RECORD → COMPARE
-        </div>
-
-    </article>
-
-
-    <article class="step">
-
-        <div class="step-top">
-            <div class="step-number">04</div>
-            <span class="step-arrow">↗</span>
-        </div>
-
-        <div class="step-icon">!</div>
-
-        <h3>
-            React to changes
-        </h3>
-
-        <p>
-            See meaningful changes in your dashboard and get
-            notified when something important happens.
-        </p>
-
-        <div class="step-example">
-            CHANGE DETECTED
-        </div>
-
-    </article>
-
-</div>
-
-
-</section>
-
-<!-- FEATURES -->
-
-<section id="features" class="features-section">
-
-
-<div class="section-heading centered">
-
-    <span class="section-eyebrow">
-        THE MONITOR
-    </span>
-
-    <h2>
-        A clearer view of
-        <span>your market.</span>
-    </h2>
-
-    <p>
-        The goal isn't more data. It's knowing which changes
-        deserve your attention.
-    </p>
-
-</div>
-
-
-<div class="feature-grid">
-
-
-    <!-- PRICE -->
-
-    <article class="feature feature-large">
-
-        <div class="feature-copy">
-
-            <div class="feature-number">01</div>
-
-            <h3>
-                Price monitoring
-            </h3>
-
-            <p>
-                Know when competitors raise or lower the price
-                of products you're watching.
-            </p>
-
-        </div>
-
-
-        <div class="feature-visual price-visual">
-
-            <div class="mini-price-header">
-
-                <div>
-                    <small>PRODUCT</small>
-                    <span>MacBook Air M4</span>
-                </div>
-
-                <div class="visual-period">
-                    Last 30 days
-                </div>
-
+            <div class="market-item">
+                <span class="market-icon">↕</span>
+                Price changes
             </div>
 
-
-            <div class="chart-area">
-
-                <div class="chart-y-axis">
-                    <span>$1,050</span>
-                    <span>$1,000</span>
-                    <span>$950</span>
-                    <span>$900</span>
-                    <span>$850</span>
-                </div>
-
-                <div class="chart">
-
-                    <div class="chart-grid">
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </div>
-
-                    <svg
-                        viewBox="0 0 600 180"
-                        preserveAspectRatio="none"
-                        class="price-chart"
-                    >
-                        <defs>
-                            <linearGradient
-                                id="priceGradient"
-                                x1="0"
-                                x2="0"
-                                y1="0"
-                                y2="1"
-                            >
-                                <stop offset="0%" stop-opacity=".18"/>
-                                <stop offset="100%" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-
-                        <path
-                            d="M0 42
-                               C50 38 70 52 110 48
-                               C155 43 175 62 215 70
-                               C255 78 280 62 320 75
-                               C360 88 380 104 420 96
-                               C460 88 485 108 520 121
-                               C550 132 575 128 600 145
-                               L600 180 L0 180 Z"
-                            fill="url(#priceGradient)"
-                        />
-
-                        <path
-                            d="M0 42
-                               C50 38 70 52 110 48
-                               C155 43 175 62 215 70
-                               C255 78 280 62 320 75
-                               C360 88 380 104 420 96
-                               C460 88 485 108 520 121
-                               C550 132 575 128 600 145"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="3"
-                        />
-                    </svg>
-
-                </div>
-
+            <div class="market-item">
+                <span class="market-icon">◉</span>
+                Stock availability
             </div>
 
-
-            <div class="chart-bottom">
-
-                <span>Jun 01</span>
-                <span>Jun 08</span>
-                <span>Jun 15</span>
-                <span>Jun 22</span>
-                <span>Jun 30</span>
-
+            <div class="market-item">
+                <span class="market-icon">□</span>
+                Product data
             </div>
 
-
-            <div class="chart-current">
-
-                <span>Current price</span>
-
-                <strong>
-                    $899
-                </strong>
-
-                <small>
-                    ↓ $100
-                </small>
-
-            </div>
-
-        </div>
-
-    </article>
-
-
-    <!-- STOCK -->
-
-    <article class="feature">
-
-        <div class="feature-copy">
-
-            <div class="feature-number">02</div>
-
-            <h3>
-                Stock changes
-            </h3>
-
-            <p>
-                See when products go out of stock or become
-                available again.
-            </p>
-
-        </div>
-
-
-        <div class="stock-card">
-
-            <div class="stock-card-top">
-
-                <div class="stock-product-icon">
-                    WH
-                </div>
-
-                <div>
-                    <strong>
-                        WH-1000XM6
-                    </strong>
-
-                    <small>
-                        Sony
-                    </small>
-                </div>
-
-                <span class="stock-time">
-                    12m
-                </span>
-
-            </div>
-
-
-            <div class="stock-status">
-
-                <span class="status-dot"></span>
-
-                Out of stock
-
-            </div>
-
-
-            <div class="stock-history">
-
-                <span class="stock-line active"></span>
-                <span class="stock-line active"></span>
-                <span class="stock-line"></span>
-                <span class="stock-line"></span>
-
-            </div>
-
-            <small>
-                Last available 3 hours ago
-            </small>
-
-        </div>
-
-    </article>
-
-
-    <!-- HISTORY -->
-
-    <article class="feature">
-
-        <div class="feature-copy">
-
-            <div class="feature-number">03</div>
-
-            <h3>
-                Price history
-            </h3>
-
-            <p>
-                Keep historical snapshots so you can understand
-                how competitor pricing evolves.
-            </p>
-
-        </div>
-
-
-        <div class="history-card">
-
-            <div class="history-card-header">
-
-                <span>
-                    PRICE HISTORY
-                </span>
-
-                <span>
-                    30 DAYS
-                </span>
-
-            </div>
-
-
-            <div class="history-price">
-
-                <strong>
-                    $859
-                </strong>
-
-                <span>
-                    Current
-                </span>
-
-            </div>
-
-
-            <div class="history-bars">
-
-                <i style="height: 72%"></i>
-                <i style="height: 58%"></i>
-                <i style="height: 65%"></i>
-                <i style="height: 48%"></i>
-                <i style="height: 54%"></i>
-                <i style="height: 39%"></i>
-                <i style="height: 32%"></i>
-                <i style="height: 25%"></i>
-            </div>
-
-
-            <div class="history-footer">
-
-                <span>
-                    ↓ $40 this month
-                </span>
-
-                <span>
-                    Lowest: $849
-                </span>
-
-            </div>
-
-        </div>
-
-    </article>
-
-
-    <!-- ALERTS -->
-
-    <article class="feature feature-wide">
-
-        <div class="feature-wide-copy">
-
-            <div class="feature-number">
-                04
-            </div>
-
-            <h3>
+            <div class="market-item">
+                <span class="market-icon">!</span>
                 Change alerts
-            </h3>
+            </div>
+
+            <div class="market-item">
+                <span class="market-icon">↗</span>
+                Historical snapshots
+            </div>
+
+        </div>
+
+    </section>
+
+
+ 
+
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">HOW IT WORKS</span>
+
+                <h2>
+                    One setup.
+                    <span>Then it keeps watching.</span>
+                </h2>
+            </div>
 
             <p>
-                You don't need to keep opening the dashboard.
-                Important changes can become alerts so you know
-                when something needs attention.
+                Rivalo turns a competitor product URL into a monitored
+                product. Scheduled checks collect fresh snapshots so
+                changes can be compared over time.
             </p>
 
-            <div class="alert-types">
+        </div>
 
-                <span>Price drops</span>
-                <span>Price increases</span>
-                <span>Out of stock</span>
-                <span>Back in stock</span>
 
-            </div>
+        <div class="steps">
+
+            <article class="step">
+
+                <div class="step-top">
+                    <div class="step-number">01</div>
+                    <span class="step-arrow">↗</span>
+                </div>
+
+                <div class="step-visual step-url">
+                    <span class="visual-dot"></span>
+                    competitor.com
+                </div>
+
+                <h3>Add a competitor</h3>
+
+                <p>
+                    Enter the competitor website you want to monitor.
+                </p>
+
+                <div class="step-example">
+                    COMPETITOR WEBSITE
+                </div>
+
+            </article>
+
+
+            <article class="step">
+
+                <div class="step-top">
+                    <div class="step-number">02</div>
+                    <span class="step-arrow">↗</span>
+                </div>
+
+                <div class="step-visual step-product">
+
+                    <div class="tiny-product"></div>
+
+                    <div>
+                        <strong>Product URL</strong>
+                        <small>Specific page</small>
+                    </div>
+
+                </div>
+
+                <h3>Add a product</h3>
+
+                <p>
+                    Give Rivalo the specific product page you want to track.
+                </p>
+
+                <div class="step-example">
+                    PRODUCT PAGE
+                </div>
+
+            </article>
+
+
+            <article class="step">
+
+                <div class="step-top">
+                    <div class="step-number">03</div>
+                    <span class="step-arrow">↗</span>
+                </div>
+
+                <div class="step-visual step-check">
+
+                    <div class="check-ring">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Scheduled check</strong>
+                        <small>Fresh snapshot</small>
+                    </div>
+
+                </div>
+
+                <h3>Monitor automatically</h3>
+
+                <p>
+                    Scheduled checks revisit the product and store fresh
+                    snapshots of detected information.
+                </p>
+
+                <div class="step-example">
+                    CHECK → SNAPSHOT
+                </div>
+
+            </article>
+
+
+            <article class="step">
+
+                <div class="step-top">
+                    <div class="step-number">04</div>
+                    <span class="step-arrow">↗</span>
+                </div>
+
+                <div class="step-visual step-alert">
+
+                    <span class="alert-symbol">!</span>
+
+                    <div>
+                        <strong>Change detected</strong>
+                        <small>Review required</small>
+                    </div>
+
+                </div>
+
+                <h3>React to changes</h3>
+
+                <p>
+                    Compare snapshots and receive supported price or
+                    stock alerts when something changes.
+                </p>
+
+                <div class="step-example">
+                    COMPARE → ALERT
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section id="features" class="features-section">
+
+        <div class="section-heading centered">
+
+            <span class="section-eyebrow">THE MONITOR</span>
+
+            <h2>
+                Less checking.
+                <span>More signal.</span>
+            </h2>
+
+            <p>
+                Rivalo focuses on the information you actually need
+                from competitor product pages.
+            </p>
 
         </div>
 
 
-        <div class="notification-stack">
+        <div class="feature-grid">
 
-            <div class="notification-preview notification-back">
 
-                <div class="notification-icon">
-                    ↕
-                </div>
+            <!-- PRICE -->
+            <article class="feature feature-large">
 
-                <div>
-                    <strong>
-                        Price changed
-                    </strong>
+                <div class="feature-copy">
+
+                    <div class="feature-number">01</div>
+
+                    <h3>Price monitoring</h3>
 
                     <p>
-                        MacBook Air dropped from $949 to $899.
+                        Detect price movement on the products you're
+                        tracking and compare it against previous snapshots.
                     </p>
+
                 </div>
 
-                <span>
-                    2m
-                </span>
+                <div class="feature-visual price-visual">
 
-            </div>
+                    <div class="price-window">
 
+                        <div class="price-window-top">
+                            <span>PRICE</span>
+                            <span class="tiny-status">DETECTED</span>
+                        </div>
 
-            <div class="notification-preview">
+                        <div class="price-display">
+                            <span>Current detected price</span>
+                            <strong>—</strong>
+                        </div>
 
-                <div class="notification-icon warning-icon">
-                    !
+                        <div class="price-history-line">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <div class="price-history-labels">
+                            <span>Previous snapshots</span>
+                            <span>Latest</span>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong>
-                        Stock changed
-                    </strong>
+            </article>
+
+
+            <!-- STOCK -->
+            <article class="feature">
+
+                <div class="feature-copy">
+
+                    <div class="feature-number">02</div>
+
+                    <h3>Availability</h3>
 
                     <p>
-                        Sony WH-1000XM6 is now out of stock.
+                        Record stock states when the product page provides
+                        enough evidence to determine them.
                     </p>
+
                 </div>
 
-                <span>
-                    now
-                </span>
+                <div class="stock-card">
+
+                    <div class="stock-card-top">
+                        <span>AVAILABILITY</span>
+                        <span>PRODUCT PAGE</span>
+                    </div>
+
+                    <div class="stock-state">
+
+                        <div class="state-circle">
+                            ?
+                        </div>
+
+                        <div>
+                            <strong>Unknown</strong>
+                            <p>
+                                No reliable availability signal detected.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="stock-note">
+                        Rivalo does not turn an unclear page into
+                        a false out-of-stock result.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- HISTORY -->
+            <article class="feature">
+
+                <div class="feature-copy">
+
+                    <div class="feature-number">03</div>
+
+                    <h3>Historical snapshots</h3>
+
+                    <p>
+                        Keep previous product observations so you can
+                        understand what changed instead of relying on memory.
+                    </p>
+
+                </div>
+
+                <div class="history-card">
+
+                    <div class="history-header">
+                        <span>SNAPSHOT HISTORY</span>
+                        <span>NEWEST</span>
+                    </div>
+
+                    <div class="history-row">
+                        <span class="history-marker"></span>
+                        <div>
+                            <strong>Latest snapshot</strong>
+                            <small>Product data recorded</small>
+                        </div>
+                    </div>
+
+                    <div class="history-row">
+                        <span class="history-marker"></span>
+                        <div>
+                            <strong>Previous snapshot</strong>
+                            <small>Stored for comparison</small>
+                        </div>
+                    </div>
+
+                    <div class="history-row">
+                        <span class="history-marker"></span>
+                        <div>
+                            <strong>Earlier snapshot</strong>
+                            <small>Historical record</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ALERTS -->
+            <article class="feature feature-wide">
+
+                <div class="feature-wide-copy">
+
+                    <div class="feature-number">04</div>
+
+                    <h3>Change alerts</h3>
+
+                    <p>
+                        You don't need to repeatedly open competitor pages.
+                        When Rivalo detects a supported change, it can turn
+                        that change into an email alert.
+                    </p>
+
+                    <div class="alert-types">
+                        <span>Price drops</span>
+                        <span>Price increases</span>
+                        <span>Out of stock</span>
+                        <span>Back in stock</span>
+                    </div>
+
+                </div>
+
+                <div class="notification-stack">
+
+                    <div class="notification-card">
+
+                        <div class="notification-icon">
+                            ↕
+                        </div>
+
+                        <div>
+                            <small>PRICE CHANGE</small>
+                            <strong>Change detected</strong>
+                            <span>Review the latest snapshot.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="notification-card">
+
+                        <div class="notification-icon">
+                            ◉
+                        </div>
+
+                        <div>
+                            <small>STOCK CHANGE</small>
+                            <strong>Availability changed</strong>
+                            <span>Only when reliably detected.</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRUTH / DETECTION -->
+    <section class="truth-section">
+
+        <div class="truth-grid">
+
+            <div class="truth-copy">
+
+                <span class="section-eyebrow">TRUTH BY DESIGN</span>
+
+                <h2>
+                    If the page doesn't know,
+                    <span>neither should Rivalo.</span>
+                </h2>
+
+                <p>
+                    Product pages don't always expose reliable availability
+                    information. Rivalo keeps that uncertainty visible instead
+                    of guessing.
+                </p>
+
+                <p>
+                    That means an unclear product page can remain
+                    <strong>Unknown</strong> rather than incorrectly being
+                    reported as out of stock.
+                </p>
+
+            </div>
+
+
+            <div class="truth-visual">
+
+                <div class="truth-card">
+
+                    <div class="truth-card-header">
+                        <span>AVAILABILITY STATES</span>
+                        <span>DETECTION</span>
+                    </div>
+
+                    <div class="truth-state reliable">
+
+                        <span class="state-indicator"></span>
+
+                        <div>
+                            <strong>In stock</strong>
+                            <small>Reliable signal detected</small>
+                        </div>
+
+                        <span class="state-label">
+                            DETECTED
+                        </span>
+
+                    </div>
+
+                    <div class="truth-state reliable">
+
+                        <span class="state-indicator"></span>
+
+                        <div>
+                            <strong>Out of stock</strong>
+                            <small>Reliable signal detected</small>
+                        </div>
+
+                        <span class="state-label">
+                            DETECTED
+                        </span>
+
+                    </div>
+
+                    <div class="truth-state uncertain">
+
+                        <span class="state-indicator"></span>
+
+                        <div>
+                            <strong>Unknown</strong>
+                            <small>Page did not provide enough evidence</small>
+                        </div>
+
+                        <span class="state-label">
+                            NO GUESS
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </article>
-
-</div>
+    </section>
 
 
-</section>
+    <!-- PROBLEM -->
+    <section class="why-section">
 
-<!-- PROBLEM -->
+        <div class="why-content">
 
-<section class="why-section">
+            <span class="section-eyebrow">THE OLD WAY</span>
 
+            <h2>
+                Your competitors don't
+                <span>announce when they change.</span>
+            </h2>
 
-<div class="why-content">
+            <p>
+                A competitor can change a price, sell out of a product,
+                or update a product page while you're focused on your own store.
+            </p>
 
-    <span class="section-eyebrow">
-        THE PROBLEM
-    </span>
+            <p>
+                Manually checking every product doesn't scale.
+            </p>
 
-    <h2>
-        Your competitors don't
-        <span>announce when they change.</span>
-    </h2>
-
-    <p>
-        A competitor can change a price at 2 AM, sell out of a
-        product before lunch, or quietly change a product page.
-    </p>
-
-    <p>
-        You shouldn't need someone checking their websites
-        every few hours just to notice.
-    </p>
-
-</div>
-
-
-<div class="why-statement">
-
-    <div class="manual-label">
-        <span class="problem-dot"></span>
-        THE OLD WAY
-    </div>
-
-    <div class="comparison-line">
-
-        <span>Open websites</span>
-        <strong>→</strong>
-        <span>Check products</span>
-        <strong>→</strong>
-        <span>Record changes</span>
-
-    </div>
-
-
-    <div class="manual-time">
-        <span>Every day</span>
-        <strong>+</strong>
-        <span>Every competitor</span>
-        <strong>+</strong>
-        <span>Every product</span>
-    </div>
-
-
-    <div class="automated-label">
-        <span class="automation-dot"></span>
-        WITH COMPETITOR MONITOR
-    </div>
-
-    <div class="comparison-line automated">
-
-        <span>Monitor once</span>
-        <strong>→</strong>
-        <span>Automatic checks</span>
-        <strong>→</strong>
-        <span>See changes</span>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- DATA SECTION -->
-
-<section class="data-section">
-
-
-<div class="data-section-heading">
-
-    <span class="section-eyebrow">
-        ONE PLACE
-    </span>
-
-    <h2>
-        Stop collecting information.
-        <span>Start seeing patterns.</span>
-    </h2>
-
-</div>
-
-
-<div class="data-dashboard">
-
-    <div class="data-dashboard-top">
-
-        <div>
-            <small>MARKET OVERVIEW</small>
-            <strong>Competitive activity</strong>
-        </div>
-
-        <span>
-            Last 30 days
-        </span>
-
-    </div>
-
-
-    <div class="data-metrics">
-
-        <div>
-            <small>Products tracked</small>
-            <strong>124</strong>
-            <span>↑ 18 this month</span>
-        </div>
-
-        <div>
-            <small>Price changes</small>
-            <strong>38</strong>
-            <span>Across 12 competitors</span>
-        </div>
-
-        <div>
-            <small>Stock changes</small>
-            <strong>16</strong>
-            <span>9 require attention</span>
-        </div>
-
-        <div>
-            <small>Competitors</small>
-            <strong>12</strong>
-            <span>Across 4 categories</span>
-        </div>
-
-    </div>
-
-
-    <div class="data-activity">
-
-        <div class="activity-heading">
-            <span>RECENT CHANGES</span>
-            <span>STATUS</span>
         </div>
 
 
-        <div class="activity-row">
+        <div class="why-statement">
 
-            <div class="activity-product">
-                <span>A</span>
+            <div class="manual-label">
+                <span class="problem-dot"></span>
+                MANUAL MONITORING
+            </div>
+
+            <div class="comparison-line">
+                <span>Open websites</span>
+                <strong>→</strong>
+                <span>Check products</span>
+                <strong>→</strong>
+                <span>Record changes</span>
+            </div>
+
+            <div class="manual-time">
+                <span>Repeated work</span>
+                <strong>+</strong>
+                <span>More products</span>
+                <strong>+</strong>
+                <span>More competitors</span>
+            </div>
+
+            <div class="automated-label">
+                <span class="automation-dot"></span>
+                WITH RIVALO
+            </div>
+
+            <div class="comparison-line automated">
+                <span>Monitor once</span>
+                <strong>→</strong>
+                <span>Scheduled checks</span>
+                <strong>→</strong>
+                <span>See changes</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DATA SECTION -->
+    <section class="data-section">
+
+        <div class="data-section-heading">
+
+            <span class="section-eyebrow">THE RESULT</span>
+
+            <h2>
+                Turn repeated checks into
+                <span>a record of change.</span>
+            </h2>
+
+            <p>
+                Each check contributes to a history of the product
+                information Rivalo can detect.
+            </p>
+
+        </div>
+
+
+        <div class="data-dashboard">
+
+            <div class="data-dashboard-header">
+
                 <div>
-                    <strong>Air Max 90</strong>
-                    <small>Nike</small>
+                    <span>MONITORING RECORD</span>
+                    <strong>Product snapshots</strong>
                 </div>
+
+                <div class="record-badge">
+                    SCHEDULED CHECKS
+                </div>
+
             </div>
 
-            <div class="activity-change down">
-                Price ↓ $20
-            </div>
 
-            <div class="activity-status">
-                Detected
+            <div class="record-flow">
+
+                <div class="record-column">
+
+                    <span class="record-index">01</span>
+
+                    <div class="record-box">
+                        <small>PRODUCT URL</small>
+                        <strong>Specific product page</strong>
+                        <span>Selected by you</span>
+                    </div>
+
+                </div>
+
+
+                <div class="record-arrow">→</div>
+
+
+                <div class="record-column">
+
+                    <span class="record-index">02</span>
+
+                    <div class="record-box">
+                        <small>CHECK</small>
+                        <strong>Fresh product data</strong>
+                        <span>Detected from the page</span>
+                    </div>
+
+                </div>
+
+
+                <div class="record-arrow">→</div>
+
+
+                <div class="record-column">
+
+                    <span class="record-index">03</span>
+
+                    <div class="record-box">
+                        <small>SNAPSHOT</small>
+                        <strong>Stored observation</strong>
+                        <span>Kept for comparison</span>
+                    </div>
+
+                </div>
+
+
+                <div class="record-arrow">→</div>
+
+
+                <div class="record-column">
+
+                    <span class="record-index">04</span>
+
+                    <div class="record-box">
+                        <small>CHANGE</small>
+                        <strong>Compare over time</strong>
+                        <span>Alert when supported</span>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-
-        <div class="activity-row">
-
-            <div class="activity-product">
-                <span>M</span>
-                <div>
-                    <strong>MacBook Air M4</strong>
-                    <small>Apple</small>
-                </div>
-            </div>
-
-            <div class="activity-change out">
-                Out of stock
-            </div>
-
-            <div class="activity-status">
-                Attention
-            </div>
-
-        </div>
+    </section>
 
 
-        <div class="activity-row">
-
-            <div class="activity-product">
-                <span>S</span>
-                <div>
-                    <strong>WH-1000XM6</strong>
-                    <small>Sony</small>
-                </div>
-            </div>
-
-            <div class="activity-change up">
-                Price ↑ $10
-            </div>
-
-            <div class="activity-status">
-                Detected
-            </div>
-
-        </div>
-
-
-        <div class="activity-row">
-
-            <div class="activity-product">
-                <span>N</span>
-                <div>
-                    <strong>Pegasus 41</strong>
-                    <small>Nike</small>
-                </div>
-            </div>
-
-            <div class="activity-change in">
-                Back in stock
-            </div>
-
-            <div class="activity-status">
-                Detected
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-
-<!-- FINAL CTA -->
-
+    <!-- FINAL CTA -->
 <section class="final-cta">
+    <div class="final-cta-inner">
 
-
-<div class="final-cta-grid">
-
-    <div>
-
-        <span class="section-eyebrow">
-            READY?
-        </span>
-
-        <h2>
-            Stop checking.
-            <span>Start knowing.</span>
-        </h2>
-
-        <p>
-            Put your competitor monitoring on autopilot
-            and spend your time acting on the information.
-        </p>
-
+    <div class="final-cta-label">
+        <span class="final-cta-line"></span>
+        KEEP WATCH
     </div>
 
+    <div class="final-cta-main">
 
-    <div class="final-cta-action">
+        <div class="final-cta-heading">
+            <h2>
+                Know when they
+                <span>make a move.</span>
+            </h2>
 
-        <a href="/auth/register" class="cta-button">
-            Create your account
-            <span>↗</span>
-        </a>
+            <p>
+                Choose the competitor products you care about.
+                Rivalo checks them for you and tells you when something changes.
+            </p>
+        </div>
 
-        <small>
-            No complicated setup.
-        </small>
+        <div class="final-cta-card">
 
+            <div class="final-cta-card-top">
+                <span>RIVALO</span>
+                <span>COMPETITOR MONITOR</span>
+            </div>
+
+            <div class="final-cta-card-body">
+
+                <div class="cta-mini-label">START MONITORING</div>
+
+                <strong>
+                    Pick a product.<br>
+                    We'll watch it.
+                </strong>
+
+                <a href="/auth/register" class="cta-button">
+                    Start monitoring
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="final-cta-card-bottom">
+                <span>PRICE</span>
+                <span>STOCK</span>
+                <span>CHANGES</span>
+                <span>ALERTS</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="final-cta-footer">
+        <span>SELECT</span>
+        <span>MONITOR</span>
+        <span>DETECT</span>
+        <span>REACT</span>
     </div>
 
 </div>
 
-
 </section>
+
 
 </main>
+
+
 <!-- WAITLIST -->
 <section id="waitlist" class="waitlist-section">
 
-<div class="section-heading centered">
+    <div class="section-heading centered">
 
-    <span class="section-eyebrow">
-        EARLY ACCESS
-    </span>
+        <span class="section-eyebrow">EARLY ACCESS</span>
 
-    <h2>
-        Reserve your spot,
-        <span>save on launch pricing.</span>
-    </h2>
-
-    <p>
-        Join the early access list and get 50% off your first
-        3 months when we launch. No payment required today.
-    </p>
-
-</div>
-
-<div class="waitlist-card">
-
-    <% if (!isAuthenticated) { %>
+        <h2>
+            Reserve your spot,
+            <span>save on launch pricing.</span>
+        </h2>
 
         <p>
-            Create an account or log in to reserve your Early Access spot.
+            Join the early access list and get 50% off your first
+            3 months when we launch. No payment required today.
         </p>
 
-        <div class="waitlist-auth-actions">
-            <a href="/auth/register" class="primary-button">
-                Create an account
-            </a>
+    </div>
 
-            <a href="/auth/login" class="waitlist-login">
-                Already have an account? Log in
-            </a>
-        </div>
 
-    <% } else if (waitlistSignup) { %>
+    <div class="waitlist-card">
 
-        <div class="waitlist-success">
-            <div class="waitlist-success-icon">✓</div>
+        <% if (!isAuthenticated) { %>
 
-            <div>
-                <strong>You're already on the list.</strong>
-                <p>
-                    Your Early Access spot is reserved. We'll email you when Rivalo launches.
-                </p>
+            <p>
+                Create an account or log in to reserve your Early Access spot.
+            </p>
+
+            <div class="waitlist-auth-actions">
+
+                <a href="/auth/register" class="primary-button">
+                    Create an account
+                </a>
+
+                <a href="/auth/login" class="waitlist-login">
+                    Already have an account? Log in
+                </a>
+
             </div>
-        </div>
 
-    <% } else { %>
+        <% } else if (waitlistSignup) { %>
 
-        <form action="/waitlist" method="POST" class="waitlist-form">
+            <div class="waitlist-success">
 
-            <input
-                type="email"
-                name="email"
-                placeholder="you@yourstore.com"
-                required
-            >
+                <div class="waitlist-success-icon">
+                    ✓
+                </div>
 
-            <input
-                type="url"
-                name="store_url"
-                placeholder="Your store URL (optional)"
-            >
+                <div>
+                    <strong>You're already on the list.</strong>
 
-            <select name="feature_interest">
-                <option value="">
-                    Which matters most to you?
-                </option>
+                    <p>
+                        Your Early Access spot is reserved.
+                        We'll email you when Rivalo launches.
+                    </p>
+                </div>
 
-                <option value="price">
-                    Price change alerts
-                </option>
+            </div>
 
-                <option value="stock">
-                    Stock availability alerts
-                </option>
+        <% } else { %>
 
-                <option value="history">
-                    Stock and price alerts and history
-                </option>
-            </select>
+            <form action="/waitlist" method="POST" class="waitlist-form">
 
-            <button type="submit" class="primary-button">
-                Reserve your spot
-            </button>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@yourstore.com"
+                    required
+                >
 
-        </form>
+                <input
+                    type="url"
+                    name="store_url"
+                    placeholder="Your store URL (optional)"
+                >
 
-    <% } %>
+                <select name="feature_interest">
 
-    <% if (typeof error !== 'undefined' && error) { %>
-        <p class="waitlist-message error">
-            <%= error %>
-        </p>
-    <% } %>
+                    <option value="">
+                        Which matters most to you?
+                    </option>
 
-</div>
+                    <option value="price">
+                        Price change alerts
+                    </option>
 
+                    <option value="stock">
+                        Stock availability alerts
+                    </option>
 
+                    <option value="history">
+                        Stock and price alerts and history
+                    </option>
 
-<footer>
+                </select>
 
-<div class="footer-container">
+                <button type="submit" class="primary-button">
+                    Reserve your spot
+                </button>
 
-    <div class="footer-brand">
+            </form>
 
-        <a href="/" class="brand">
-            <span class="brand-mark">C</span>
-            <span>Competitor Monitor</span>
-        </a>
-
-        <p>
-            Competitive intelligence for online stores.
-        </p>
-
-    </div>
+        <% } %>
 
 
-    <div class="footer-links">
+        <% if (typeof error !== 'undefined' && error) { %>
 
-        <div>
+            <p class="waitlist-message error">
+                <%= error %>
+            </p>
 
-            <span>PRODUCT</span>
-
-            <a href="#features">
-                Features
-            </a>
-
-            <a href="#how-it-works">
-                How it works
-            </a>
-
-        
-
-        </div>
-
-
-        <div>
-
-            <span>ACCOUNT</span>
-
-            <a href="/auth/login">
-                Log in
-            </a>
-
-            <a href="/auth/register">
-                Create account
-            </a>
-    <a href="/terms">Terms of Service</a>
-    <span>·</span>
-    <a href="/policy">Privacy Policy</a>
-        </div>
+        <% } %>
 
     </div>
 
-</div>
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="/" class="brand">
+
+                    <span class="brand-mark">
+                        <img src="/favicon.png" alt="Rivalo">
+                    </span>
+
+                    <span>Rivalo</span>
+
+                </a>
+
+                <p>
+                    Competitive intelligence for online stores.
+                </p>
+
+            </div>
 
 
-<div class="footer-bottom">
+            <div class="footer-links">
 
-    <span>
-        © <%= new Date().getFullYear() %> Competitor Monitor
-    </span>
+                <div>
 
-    <span>
-        Built for competitive businesses.
-    </span>
+                    <span>PRODUCT</span>
 
-</div>
+                    <a href="#features">Features</a>
 
-<footer class="legal-footer">
+                    <a href="#how-it-works">
+                        How it works
+                    </a>
 
-</footer>
+                </div>
 
-</footer>
+
+                <div>
+
+                    <span>ACCOUNT</span>
+
+                    <a href="/auth/login">
+                        Log in
+                    </a>
+
+                    <a href="/auth/register">
+                        Create account
+                    </a>
+
+                    <a href="/terms">
+                        Terms of Service
+                    </a>
+
+                    <a href="/policy">
+                        Privacy Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <%= new Date().getFullYear() %> Rivalo
+            </span>
+
+            <span>
+                Built for competitive businesses.
+            </span>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
