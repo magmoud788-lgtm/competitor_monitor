@@ -3566,3 +3566,73 @@ footer {
         flex-wrap: wrap;
     }
 }
+
+.waitlist-auth-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.waitlist-login {
+    color: #666;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.waitlist-login:hover {
+    color: #111;
+}
+
+.waitlist-success {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+}
+
+.waitlist-success-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.waitlist-success strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+    color: #111;
+}
+
+.waitlist-success p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.logout-link button {
+    padding: 9px 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-link button:hover {
+    border-color: #111;
+    background: #111;
+    color: #fff;
+}

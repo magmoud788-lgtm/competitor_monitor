@@ -23,8 +23,13 @@ const findUserByEmail = (email) =>
   pool.query(`SELECT * FROM users WHERE email = $1`, [email]);
 
 const findUserById = (id) =>
-  pool.query(`SELECT id, name, email, notify_email, email_verified, created_at FROM users WHERE id = $1`, [id]);
-const updateUser = (id, name, email) =>
+  pool.query(
+    `SELECT id, name, email, notify_email, email_verified, early_access_claimed, created_at
+     FROM users
+     WHERE id = $1`,
+    [id]
+  );
+  const updateUser = (id, name, email) =>
   pool.query(
     `UPDATE users SET name = $2, email = $3 WHERE id = $1
      RETURNING id, name, email, notify_email, created_at`,
@@ -242,12 +247,27 @@ const consumeVerificationToken = async (rawToken) => {
   return row.user_id;
 };
 
-const createWaitlistSignup = (email, storeUrl, featureInterest) =>
+const createWaitlistSignup = (userId, email, storeUrl, featureInterest) =>
   pool.query(
-    `INSERT INTO waitlist_signups (email, store_url, feature_interest)
-     VALUES ($1, $2, $3) RETURNING *`,
-    [email, storeUrl || null, featureInterest || null]
-  ); 
+    `INSERT INTO waitlist_signups
+      (user_id, email, store_url, feature_interest)
+     VALUES ($1, $2, $3, $4)
+     RETURNING *`,
+    [
+      userId,
+      email,
+      storeUrl || null,
+      featureInterest || null
+    ]
+  );
+  const findWaitlistSignupByUserId = (userId) =>
+  pool.query(
+    `SELECT *
+     FROM waitlist_signups
+     WHERE user_id = $1
+     LIMIT 1`,
+    [userId]
+  );
 
   const debugDatabase = () => pool.query(`
   SELECT
@@ -266,6 +286,17 @@ const debugUsers = () => pool.query(`
 
 const listWaitlistSignups = () =>
   pool.query(`SELECT * FROM waitlist_signups ORDER BY created_at DESC`);
+
+async function claimEarlyAccess(userId) {
+    return pool.query(
+        `UPDATE users
+         SET early_access_claimed = TRUE
+         WHERE id = $1
+           AND early_access_claimed = FALSE
+         RETURNING id`,
+        [userId]
+    );
+}
 module.exports = {
   createUser, findUserByEmail, findUserById, updateUser, updateNotifyEmail, deleteUser,
   createCompetitor, listCompetitors, getCompetitorOwned, updateCompetitor, deleteCompetitor,
@@ -280,5 +311,7 @@ module.exports = {
   consumeVerificationToken,
   createWaitlistSignup,
   listWaitlistSignups,
-  checkUsersTable
+  checkUsersTable,
+  claimEarlyAccess,
+  findWaitlistSignupByUserId
 };

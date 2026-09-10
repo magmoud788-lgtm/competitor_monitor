@@ -5,6 +5,11 @@ const { requireAuth } = require('../middleware/auth');
 
 router.use(requireAuth);
 
+router.post(
+    "/early-access/claim",
+    user.claimEarlyAccessController
+);
+
 router.get('/', user.showAccount);
 router.post('/', user.updateProfile);
 router.post('/notifications', user.toggleNotifications);

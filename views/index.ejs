@@ -45,7 +45,7 @@
     <nav class="desktop-nav">
         <a href="#how-it-works">How it works</a>
         <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
+     
         <a href="/#waitlist">Early access</a>
 
     </nav>
@@ -64,6 +64,9 @@
     <% } %>
 </div>
 
+<form action="/auth/logout" method="POST" class="logout-link" style="display: inline;">
+                <button type="submit">Logout</button>
+            </form>
 </div>
 
 
@@ -1477,51 +1480,109 @@
 
 </main>
 <!-- WAITLIST -->
-
 <section id="waitlist" class="waitlist-section">
 
-    <div class="section-heading centered">
+<div class="section-heading centered">
 
-        <span class="section-eyebrow">
-            EARLY ACCESS
-        </span>
+    <span class="section-eyebrow">
+        EARLY ACCESS
+    </span>
 
-        <h2>
-            Reserve your spot,
-            <span>save on launch pricing.</span>
-        </h2>
+    <h2>
+        Reserve your spot,
+        <span>save on launch pricing.</span>
+    </h2>
+
+    <p>
+        Join the early access list and get 50% off your first
+        3 months when we launch. No payment required today.
+    </p>
+
+</div>
+
+<div class="waitlist-card">
+
+    <% if (!isAuthenticated) { %>
 
         <p>
-            Join the early access list and get 50% off your first
-            3 months when we launch. No payment required today.
+            Create an account or log in to reserve your Early Access spot.
         </p>
 
-    </div>
+        <div class="waitlist-auth-actions">
+            <a href="/auth/register" class="primary-button">
+                Create an account
+            </a>
 
-    <div class="waitlist-card">
+            <a href="/auth/login" class="waitlist-login">
+                Already have an account? Log in
+            </a>
+        </div>
+
+    <% } else if (waitlistSignup) { %>
+
+        <div class="waitlist-success">
+            <div class="waitlist-success-icon">✓</div>
+
+            <div>
+                <strong>You're already on the list.</strong>
+                <p>
+                    Your Early Access spot is reserved. We'll email you when Rivalo launches.
+                </p>
+            </div>
+        </div>
+
+    <% } else { %>
 
         <form action="/waitlist" method="POST" class="waitlist-form">
-            <input type="email" name="email" placeholder="you@yourstore.com" required>
-            <input type="url" name="store_url" placeholder="Your store URL (optional)">
+
+            <input
+                type="email"
+                name="email"
+                placeholder="you@yourstore.com"
+                required
+            >
+
+            <input
+                type="url"
+                name="store_url"
+                placeholder="Your store URL (optional)"
+            >
+
             <select name="feature_interest">
-                <option value="">Which matters most to you?</option>
-                <option value="price">Price change alerts</option>
-                <option value="stock">Stock availability alerts</option>
-                <option value="history">Stock and price alerts and history</option>
+                <option value="">
+                    Which matters most to you?
+                </option>
+
+                <option value="price">
+                    Price change alerts
+                </option>
+
+                <option value="stock">
+                    Stock availability alerts
+                </option>
+
+                <option value="history">
+                    Stock and price alerts and history
+                </option>
             </select>
-            <button type="submit" class="primary-button">Reserve your spot</button>
+
+            <button type="submit" class="primary-button">
+                Reserve your spot
+            </button>
+
         </form>
 
-        <% if (typeof joined !== 'undefined' && joined) { %>
-            <p class="waitlist-message success">You're on the list — we'll email you when we launch.</p>
-        <% } %>
-        <% if (typeof error !== 'undefined' && error) { %>
-            <p class="waitlist-message error"><%= error %></p>
-        <% } %>
+    <% } %>
 
-    </div>
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p class="waitlist-message error">
+            <%= error %>
+        </p>
+    <% } %>
 
-</section>
+</div>
+
+
 
 <footer>
 
@@ -1555,9 +1616,7 @@
                 How it works
             </a>
 
-            <a href="#pricing">
-                Pricing
-            </a>
+        
 
         </div>
 

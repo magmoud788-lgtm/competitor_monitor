@@ -31,4 +31,19 @@ function deleteAccount(req, res, next) {
   });
 }
 
-module.exports = { showAccount, updateProfile, toggleNotifications, deleteAccount };
+async function claimEarlyAccessController(req, res) {
+  try {
+    const result = await queries.claimEarlyAccess(req.userId);
+
+    if (result.rowCount === 0) {
+      return res.status(400).send("Early Access has already been claimed.");
+    }
+
+    res.redirect("/account");
+  } catch (error) {
+    console.error("Early Access claim error:", error);
+    res.status(500).send("Something went wrong.");
+  }
+}
+
+module.exports = { showAccount, updateProfile, toggleNotifications, deleteAccount, claimEarlyAccessController};

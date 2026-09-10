@@ -59,10 +59,35 @@ app.use('/waitlist', waitlistRouter)
 // Home
 // =========================
 
-app.get("/", (req, res) => {
-    res.render("index", {
-        isAuthenticated: req.isAuthenticated()
-    });
+app.get("/", async (req, res) => {
+    try {
+        let user = null;
+        let waitlistSignup = null;
+
+        if (req.isAuthenticated()) {
+            const queries = require("./db/queries");
+
+            const userResult = await queries.findUserById(req.user.id);
+            user = userResult.rows[0];
+
+            const waitlistResult =
+                await queries.findWaitlistSignupByUserId(req.user.id);
+
+            waitlistSignup = waitlistResult.rows[0] || null;
+        }
+
+        res.render("index", {
+            isAuthenticated: req.isAuthenticated(),
+            user,
+            waitlistSignup
+        });
+
+    } catch (error) {
+        console.error("Home page error:", error);
+        res.status(500).send(
+            "There is an error in the app. Please try again later."
+        );
+    }
 });
 
 app.get('/terms', (req, res) => {

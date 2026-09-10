@@ -75,6 +75,12 @@
 
                             <td>
                                 <%= snapshot.stock_status %>
+
+    <% if (snapshot.stock_status === 'unknown') { %>
+        <div class="warning-banner">
+            We couldn't reliably verify this product's stock status. No stock-change alert was triggered because the status could not be confirmed.
+        </div>
+    <% } %>
                             </td>
                             <td>
                                 <% if (product.is_low_confidence) { %>
@@ -82,6 +88,7 @@
 ⚠️ Unverified page — this doesn't look like a specific product page, so the data here may be inaccurate. Please link to the exact product page for reliable tracking.                             </div>
                              <% } %>
                             </td>
+                            
                         </tr>
 
                     <% }) %>
