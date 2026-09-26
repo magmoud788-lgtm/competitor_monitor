@@ -139,15 +139,6 @@ async function checkProduct(req, res, next) {
 
         await evaluateAndNotify(product, user, scraped);
 
-        await queries.insertSnapshot(
-            product.id,
-            scraped.name,
-            scraped.price,
-            scraped.stockStatus
-        );
-
-        console.log("Snapshot saved.");
-
         res.redirect(`/products/${product.id}/history`);
 
     } catch (err) {
@@ -156,3 +147,4 @@ async function checkProduct(req, res, next) {
     }
 }
 module.exports = { list, create, showEditForm, update, remove, showHistory, checkProduct };
+
